@@ -1,1 +1,24 @@
-<p>home works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        @for (list of listArr; track list) {
+        <div class="item p-4 shadow-lg mx-3 my-4 d-flex align-items-center">
+            <div class="mx-5">
+                <h2 class="my-4">
+                    {{list.title}} </h2>
+                <p class="">{{list.description}}</p>
+            </div>
+            <div class="ms-auto mx-5 d-flex">
+                <h1 class="my-4">
+                    {{list.price}}
+                </h1>
+                <p class="mx-2 my-5 currency">{{list.currency}}</p>
+
+            </div>
+            <div class="ms-auto mx-5">
+                <input type="checkbox" [checked]="list.checked" id="check-{{list.id}}">
+                <label class="mx-3" for="checkbox-{{list.id}}">Add</label>
+            </div>
+        </div>
+        }
+    </div>
+</div>

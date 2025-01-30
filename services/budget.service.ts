@@ -11,27 +11,34 @@ export class BudgetService {
       title: 'SEO',
       description: 'Programming a complete responsive web',
       bgColor: 'white',
-      price:300,
-      currency:'€',
+      price: 300,
+      currency: '€',
       id: 0,
+      checked: false,
     },
     {
       title: 'ADS',
       description: 'Programming a complete responsive web',
       bgColor: 'white',
-      price:400,
-      currency:'€',
+      price: 400,
+      currency: '€',
       id: 1,
+      checked: false,
     },
     {
       title: 'WEB',
       description: 'Programming a complete responsive web',
       bgColor: 'white',
-      price:500,
-      currency:'€',
+      price: 500,
+      currency: '€',
       id: 2,
+      checked: false,
     },
   ]
 
   constructor() { }
+
+  getBudgetList() {
+    return this.budgetList;
+  }
 }

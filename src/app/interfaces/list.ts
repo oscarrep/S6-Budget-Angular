@@ -5,5 +5,6 @@ export interface List {
     price: number;
     currency: string;
     id: number;
+    checked: boolean;
 
 }

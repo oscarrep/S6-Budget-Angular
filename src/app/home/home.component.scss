@@ -1,0 +1,19 @@
+.container{
+    background-image: linear-gradient(to bottom right, rgb(108, 8, 148), rgb(255, 206, 116));
+    min-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item{
+    border-radius: 50px;
+    background-color: white;
+    max-width: 90vh;
+}
+
+.currency{
+    font-weight: bold;
+}

@@ -1,11 +1,22 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component,OnInit } from '@angular/core';
+import { List } from '../interfaces/list';
+import { BudgetService } from '../../../services/budget.service';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.sass'
+  styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  listArr: List[] = [];
 
+constructor(private budgetList:BudgetService){}
+
+
+  ngOnInit(): void {
+    this.listArr = this.budgetList.getBudgetList()
+  }
 }
