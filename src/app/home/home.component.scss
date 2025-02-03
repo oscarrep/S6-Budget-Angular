@@ -1,19 +1,154 @@
-.container{
+.container {
     background-image: linear-gradient(to bottom right, rgb(108, 8, 148), rgb(255, 206, 116));
     min-width: 100%;
     min-height: 100vh;
     margin: 0;
+}
+
+.banner,
+.item {
+    background-color: white;
+    border-radius: 50px;
+}
+
+.item {
+    min-width: 500px;
+    margin-bottom: 15px;
+}
+
+.banner {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    overflow: hidden;
+    top: 5%;
+    height: 200px;
+    min-width: 90%;
+    background-image: radial-gradient(circle at center, rgb(255, 255, 255), rgb(214, 214, 214), rgb(128, 128, 128));
 }
 
-.item{
-    border-radius: 50px;
-    background-color: white;
-    max-width: 90vh;
-}
-
-.currency{
+.title,
+.nav-link,
+.currency {
     font-weight: bold;
+}
+
+.currency {
+    font-size: 20px;
+    margin-top: 16px;
+}
+
+.nav-link {
+    margin-left: 5rem;
+}
+
+.title {
+    font-size: 30px;
+}
+
+//SHAPES
+.banner .white,
+.banner .white2,
+.banner .white3,
+.banner .white4,
+.banner .white5,
+.banner .yellow,
+.banner .green,
+.banner .orange {
+    position: absolute;
+    border-radius: 50px;
+}
+
+.banner .white,
+.banner .white2,
+.banner .white4,
+.banner .white5,
+.banner .white3 {
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 200px;
+}
+
+.banner .yellow {
+    bottom: -30%;
+    left: -5%;
+    width: 120px;
+    height: 100px;
+    transform: rotate(-10deg);
+    background-color: rgba(255, 206, 116, 0.8);
+}
+
+.banner .white {
+    border-radius: 50%;
+    top: -10%;
+    left: -6%;
+    width: 100px;
+}
+
+.banner .white2 {
+    border-radius: 40%;
+    top: 90%;
+    left: 10%;
+    width: 300px;
+    transform: rotate(30deg);
+}
+
+.banner .white3 {
+    top: 30%;
+    left: 45%;
+    width: 100px;
+    transform: rotate(-15deg);
+}
+
+.banner .white4 {
+    border-radius: 40%;
+    top: -70%;
+    right: 10%;
+    width: 150px;
+    transform: rotate(-60deg);
+}
+.banner .white5 {
+    border-radius: 50%;
+    bottom: -60%;
+    right: -5%;
+    width: 150px;
+    transform: rotate(-60deg);
+}
+
+.banner .orange {
+    top: -15%;
+    left: 55%;
+    width: 150px;
+    height: 50px;
+    transform: rotate(160deg);
+    background-color: rgba(255, 102, 0, 0.5);
+}
+
+.banner .green {
+    border-radius: 20px;
+    bottom: -40%;
+    left: 65%;
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+    background-color: rgba(0, 180, 100, 0.5);
+    overflow: hidden;
+}
+
+.banner .green .line,
+.banner .green .line2
+{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 5px;
+    width: 200px;
+    top: 50%;
+    right: -40%;
+    transform: rotate(65deg);
+}
+.banner .green .line2{
+    top: 50%;
+    right: -30%;
+    transform: rotate(68deg);
 }

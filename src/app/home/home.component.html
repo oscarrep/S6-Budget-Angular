@@ -1,22 +1,49 @@
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container overflow-hidden">
+    <div class="row">
+        <div class="navbar">
+            <div class="justify-content-center text-white">
+                <a class="nav-link" href="#">FrontEnder.Itacademy</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="justify-content-center d-flex align-items-center">
+            <div class="banner">
+                <div class="z-0 white"></div>
+                <div class="z-0 white2"></div>
+                <div class="z-0 white3"></div>
+                <div class="z-0 white4"></div>
+                <div class="z-0 white5"></div>
+                <div class="z-0 yellow"></div>
+                <div class="z-0 green">
+                    <div class="line"></div>
+                    <div class="line2"></div>
+                </div>
+                <div class="z-0 orange"></div>
+                <p class="title z-1">Accomplish the best quality</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-4 d-flex">
         @for (list of listArr; track list) {
-        <div class="item p-4 shadow-lg mx-3 my-4 d-flex align-items-center">
+        <div class="col-6 item p-4 shadow-lg mx-3 d-flex align-items-center">
             <div class="mx-5">
                 <h2 class="my-4">
                     {{list.title}} </h2>
-                <p class="">{{list.description}}</p>
+                <p>{{list.description}}</p>
             </div>
             <div class="ms-auto mx-5 d-flex">
-                <h1 class="my-4">
+                <h1>
                     {{list.price}}
                 </h1>
-                <p class="mx-2 my-5 currency">{{list.currency}}</p>
+                <p class="mx-2 currency">{{list.currency}}</p>
 
             </div>
-            <div class="ms-auto mx-5">
+            <div class="ms-auto mx-5 d-flex">
                 <input type="checkbox" [checked]="list.checked" id="check-{{list.id}}">
-                <label class="mx-3" for="checkbox-{{list.id}}">Add</label>
+                <label class="mx-3" for="checkbox-{{list.id}}"></label>
+                <p class="my-2">Add</p>
             </div>
         </div>
         }
