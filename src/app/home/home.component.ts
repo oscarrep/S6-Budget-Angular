@@ -2,12 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { List } from '../interfaces/list';
 import { BudgetService } from '../../../services/budget.service';
-import { FormControl,FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -20,12 +19,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.listArr = this.budgetList.getBudgetList();
-    //this.budget = this.budgetTotal.getFormBudget();
   }
 
-  calculateTotal(price: number, id: number): void {
-    console.log(price);
-    this.budget=this.budgetList.calcTotalPrice(price, id);
+  updateTotal(price: number, id: number): void {
+    this.budget = this.budgetList.calculateTotal(price, id);
   }
 
 }

@@ -44,11 +44,20 @@ export class BudgetService {
     return this.budgetList;
   }
 
-  calcTotalPrice(formValue: any, id: number): number {
+  calculateTotal(formValue: any, id: number): number {
 
-    this.totalPrice += (formValue ? this.budgetList[id].price : 0);
+    if (this.budgetList[id].checked === false) {
+      this.budgetList[id].checked = true;
+      this.totalPrice += (formValue ? this.budgetList[id].price : 0);
+    }
+    else if (this.budgetList[id].checked === true) {
+      this.budgetList[id].checked = false;
+      this.totalPrice -= (formValue ? this.budgetList[id].price : 0);
+    }
 
     console.log("total price " + this.totalPrice);
+    console.log(this.budgetList[id].title + ': checked ' + this.budgetList[id].checked);
+
     return this.totalPrice;
   }
 }
