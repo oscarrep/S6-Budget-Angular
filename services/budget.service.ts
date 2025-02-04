@@ -6,6 +6,8 @@ import { List } from '../src/app/interfaces/list';
 })
 export class BudgetService {
 
+  totalPrice = 0;
+
   budgetList: List[] = [
     {
       title: 'SEO',
@@ -40,5 +42,14 @@ export class BudgetService {
 
   getBudgetList() {
     return this.budgetList;
+  }
+
+  calcTotalPrice(formValue: any, id: number): number {
+
+    this.totalPrice = (formValue.values.seo ? this.budgetList[id].price : 0) +
+      (formValue.values.ads ? this.budgetList[id].price : 0) +
+      (formValue.values.web ? this.budgetList[id].price : 0);
+      
+    return this.totalPrice;
   }
 }

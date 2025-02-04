@@ -25,30 +25,31 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center mt-4 d-flex">
-        @for (list of listArr; track list) {
-        <div class="col-6 item p-4 shadow-lg mx-3 d-flex align-items-center">
-            <div class="mx-5">
-                <h2 class="my-4">
-                    {{list.title}} </h2>
-                <p>{{list.description}}</p>
-            </div>
-            <div class="ms-auto mx-5 d-flex">
-                <h1>
-                    {{list.price}}
-                </h1>
-                <p class="mx-2 currency">{{list.currency}}</p>
+    <form class="form">
+        <div class="row justify-content-center mt-4 d-flex">
+            @for (list of listArr; track list) {
+            <div class="col-6 item p-4 shadow-lg mx-3 d-flex align-items-center">
+                <div class="mx-5">
+                    <h2 class="my-4">
+                        {{list.title}} </h2>
+                    <p>{{list.description}}</p>
+                </div>
+                <div class="ms-auto mx-5 d-flex">
+                    <h1>
+                        {{list.price}}
+                    </h1>
+                    <p class="mx-2 currency">{{list.currency}}</p>
 
+                </div>
+                <div class="ms-auto mx-5 d-flex">
+                    <input type="checkbox" [checked]="list.checked" id="{{list.id}}">
+                    <label class="mx-3" for="{{list.id}}">Add</label>
+                </div>
             </div>
-            <div class="ms-auto mx-5 d-flex">
-                <input type="checkbox" [checked]="list.checked" id="check-{{list.id}}">
-                <label class="mx-3" for="checkbox-{{list.id}}"></label>
-                <p class="my-2">Add</p>
+            }
+            <div class="">
+                <p class="price-txt">Budget Price: 400€</p>
             </div>
         </div>
-        }
-        <div class="">
-            <p class="price-txt">Budget Price: 400€</p>
-        </div>
-    </div>
+    </form>
 </div>
