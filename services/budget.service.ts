@@ -17,6 +17,7 @@ export class BudgetService {
       currency: '€',
       id: 0,
       checked: false,
+      panel: false,
     },
     {
       title: 'ADS',
@@ -26,6 +27,7 @@ export class BudgetService {
       currency: '€',
       id: 1,
       checked: false,
+      panel: false,
     },
     {
       title: 'WEB',
@@ -35,6 +37,7 @@ export class BudgetService {
       currency: '€',
       id: 2,
       checked: false,
+      panel: true,
     },
   ]
 
