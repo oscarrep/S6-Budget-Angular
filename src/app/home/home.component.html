@@ -28,7 +28,7 @@
     <form class="form">
         <div class="row justify-content-center mt-4 d-flex">
             @for (list of listArr; track list) {
-            <div class="col-6 item p-4 shadow-lg mx-3 d-flex align-items-center">
+            <div class="col-6 item p-2 shadow-lg mx-3 d-flex align-items-center">
                 <div class="mx-5">
                     <h2 class="my-4">
                         {{list.title}} </h2>
@@ -42,13 +42,13 @@
 
                 </div>
                 <div class="ms-auto mx-5 d-flex">
-                    <input type="checkbox" [checked]="list.checked" id="{{list.id}}">
+                    <input type="checkbox" [checked]="list.checked" id="{{list.id}}" (change)="calculateTotal(list.price, list.id)">
                     <label class="mx-3" for="{{list.id}}">Add</label>
                 </div>
             </div>
             }
-            <div class="">
-                <p class="price-txt">Budget Price: 400€</p>
+            <div class="col-6 item p-2 shadow-lg d-flex align-items-center justify-content-center">
+                <p class="price-txt my-1">Final Budget: {{budget}}€</p>
             </div>
         </div>
     </form>

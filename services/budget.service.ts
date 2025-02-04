@@ -11,7 +11,7 @@ export class BudgetService {
   budgetList: List[] = [
     {
       title: 'SEO',
-      description: 'Programming a complete responsive web',
+      description: 'Programming a complete and responsive web',
       bgColor: 'white',
       price: 300,
       currency: '€',
@@ -20,7 +20,7 @@ export class BudgetService {
     },
     {
       title: 'ADS',
-      description: 'Programming a complete responsive web',
+      description: 'Programming a complete and responsive web',
       bgColor: 'white',
       price: 400,
       currency: '€',
@@ -29,7 +29,7 @@ export class BudgetService {
     },
     {
       title: 'WEB',
-      description: 'Programming a complete responsive web',
+      description: 'Programming a complete and responsive web',
       bgColor: 'white',
       price: 500,
       currency: '€',
@@ -46,10 +46,9 @@ export class BudgetService {
 
   calcTotalPrice(formValue: any, id: number): number {
 
-    this.totalPrice = (formValue.values.seo ? this.budgetList[id].price : 0) +
-      (formValue.values.ads ? this.budgetList[id].price : 0) +
-      (formValue.values.web ? this.budgetList[id].price : 0);
-      
+    this.totalPrice += (formValue ? this.budgetList[id].price : 0);
+
+    console.log("total price " + this.totalPrice);
     return this.totalPrice;
   }
 }

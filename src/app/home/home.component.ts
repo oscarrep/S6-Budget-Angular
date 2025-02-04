@@ -3,12 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { List } from '../interfaces/list';
 import { BudgetService } from '../../../services/budget.service';
 import { FormControl,FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { BudgetsListComponent } from '../budgets-list/budgets-list.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, BudgetsListComponent],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -16,7 +15,7 @@ export class HomeComponent implements OnInit {
   listArr: List[] = [];
   budget = 0;
 
-  constructor(private budgetList: BudgetService, private budgetTotal:BudgetsListComponent) { }
+  constructor(private budgetList: BudgetService) { }
 
 
   ngOnInit(): void {
@@ -26,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   calculateTotal(price: number, id: number): void {
     console.log(price);
-    this.budgetList.calcTotalPrice(price, id);
+    this.budget=this.budgetList.calcTotalPrice(price, id);
   }
 
 }

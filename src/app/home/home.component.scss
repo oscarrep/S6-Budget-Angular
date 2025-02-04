@@ -31,6 +31,7 @@
 
 .title,
 .nav-link,
+.price-txt,
 .currency {
     font-weight: bold;
 }
@@ -44,14 +45,8 @@
     margin-left: 5rem;
 }
 
-.title {
+.title, .price-txt {
     font-size: 30px;
-}
-
-.price-txt {
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
 }
 
 //SHAPES
