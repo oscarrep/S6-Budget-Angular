@@ -42,8 +42,8 @@
 
                 </div>
                 <div class="ms-auto mx-5 d-flex">
-                    <input type="checkbox" [checked]="list.checked" id="{{list.id}}" (change)="updateTotal(list.price, list.id)">
-                    <label class="mx-3" for="{{list.id}}">Add</label>
+                    <input type="checkbox" class="checkbox-circle" [checked]="list.checked" id="{{list.id}}" (change)="updateTotal(list.price, list.id)">
+                    <label class="mx-3" for="{{list.id}}">Add {{list.title}}</label>
                 </div>
             </div>
             }

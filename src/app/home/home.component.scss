@@ -5,6 +5,7 @@
     margin: 0;
 }
 
+.checkbox-circle,
 .banner,
 .item {
     background-color: white;
@@ -45,8 +46,29 @@
     margin-left: 5rem;
 }
 
-.title, .price-txt {
+.title,
+.price-txt {
     font-size: 30px;
+}
+
+
+.checkbox-circle,
+.checkbox-circle:checked {
+    margin-top: 2px;
+    outline: 2px solid #4e1b39;
+}
+
+.checkbox-circle {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    appearance: none;
+    cursor: pointer;
+}
+
+.checkbox-circle:checked {
+    background-color: #AD5488;
+    border: 3px solid white;
 }
 
 //SHAPES
