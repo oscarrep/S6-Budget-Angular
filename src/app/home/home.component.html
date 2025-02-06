@@ -48,7 +48,7 @@
                     }
                     @else{
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
-                        (change)="togglePanel($event, list.id)">
+                        (change)="togglePanel($event, list.id, list.price)">
                         
                     <app-panel>
                         @if(list.showPanel==false){

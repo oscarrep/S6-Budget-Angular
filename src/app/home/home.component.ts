@@ -26,7 +26,10 @@ export class HomeComponent implements OnInit {
     this.budget = this.budgetList.calculateTotal(price, id);
   }
 
-  togglePanel(event:Event, id:number):void{
+  togglePanel(event:Event, id:number, price:number):void{
+
+    this.updateTotal(price, id)
+
     this.listArr[id].showPanel=(event.target as HTMLInputElement).checked
   }
 
