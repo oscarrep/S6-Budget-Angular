@@ -5,7 +5,10 @@
     margin: 0;
 }
 
-.checkbox-circle,
+h1 {
+    font-size: 40px;
+}
+
 .banner,
 .item {
     background-color: white;
@@ -26,7 +29,7 @@
     overflow: hidden;
     top: 5%;
     height: 170px;
-    min-width: 90%;
+    min-width: 500px;
     background-image: radial-gradient(circle at center, rgb(255, 255, 255), rgb(214, 214, 214), rgb(128, 128, 128));
 }
 
@@ -59,10 +62,12 @@
 }
 
 .checkbox-circle {
+    border-radius: 50%;
     width: 20px;
     height: 20px;
-    vertical-align: middle;
     appearance: none;
+    display: inline-block;
+    flex-shrink: 0;
     cursor: pointer;
 }
 

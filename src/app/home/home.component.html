@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="justify-content-center d-flex align-items-center">
-            <div class="banner">
+            <div class="banner col-11">
                 <div class="z-0 white"></div>
                 <div class="z-0 white2"></div>
                 <div class="z-0 white3"></div>
@@ -29,7 +29,7 @@
         <div class="row justify-content-center mt-4 d-flex">
             @for (list of listArr; track list) {
             <div class="col-6 item p-2 shadow-lg mx-3 d-flex align-items-center">
-                <div class="mx-5">
+                <div class="mx-5 my-3">
                     <h2 class="my-4">
                         {{list.title}} </h2>
                     <p>{{list.description}}</p>
@@ -41,7 +41,7 @@
                     <p class="mx-2 currency">{{list.currency}}</p>
 
                 </div>
-                <div class="ms-auto mx-5 d-flex">
+                <div class="ms-auto mx-2 d-flex">
                     <input type="checkbox" class="checkbox-circle" [checked]="list.checked" id="{{list.id}}" (change)="updateTotal(list.price, list.id)">
                     <label class="mx-3" for="{{list.id}}">Add {{list.title}}</label>
                 </div>
