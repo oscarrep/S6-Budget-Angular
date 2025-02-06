@@ -6,5 +6,5 @@ export interface List {
     currency: string;
     id: number;
     checked: boolean;
-    panel:boolean;
+    showPanel?:boolean;
 }

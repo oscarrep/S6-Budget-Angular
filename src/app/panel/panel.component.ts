@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-panel',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './panel.component.scss'
 })
 export class PanelComponent {
-
+  @Input() text: string= '';
 }

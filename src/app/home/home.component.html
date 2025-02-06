@@ -42,7 +42,22 @@
 
                 </div>
                 <div class="ms-auto mx-2 d-flex">
-                    <input type="checkbox" class="checkbox-circle" [checked]="list.checked" id="{{list.id}}" (change)="updateTotal(list.price, list.id)">
+                    @if(list.id !=2){
+                    <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
+                        (change)="updateTotal(list.price, list.id)">
+                    }
+                    @else{
+                    <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
+                        (change)="togglePanel($event, list.id)">
+                        
+                    <app-panel>
+                        @if(list.showPanel==false){
+                        'Some text for ' + {{list.title}}
+                        }
+                    </app-panel>
+                    }
+
+
                     <label class="mx-3" for="{{list.id}}">Add {{list.title}}</label>
                 </div>
             </div>
