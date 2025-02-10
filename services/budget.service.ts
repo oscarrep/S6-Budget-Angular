@@ -6,7 +6,9 @@ import { List } from '../src/app/interfaces/list';
 })
 export class BudgetService {
 
-  totalPrice = 0;
+  totalPrice: number = 0;
+  pages: number = 1;
+  languages: number = 1;
 
   budgetList: List[] = [
     {
@@ -37,7 +39,7 @@ export class BudgetService {
       currency: '€',
       id: 2,
       checked: false,
-      showPanel: false,
+      showPanel: true,
     },
   ]
 
@@ -58,8 +60,7 @@ export class BudgetService {
       this.totalPrice -= (formValue ? this.budgetList[id].price : 0);
     }
 
-    console.log("total price " + this.totalPrice);
-    console.log(this.budgetList[id].title + ': checked ' + this.budgetList[id].checked);
+
 
     return this.totalPrice;
   }

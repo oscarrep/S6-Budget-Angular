@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { BudgetService } from '../../../services/budget.service';
+
 
 @Component({
   selector: 'app-panel',
@@ -9,21 +11,21 @@ import { Component, Input } from '@angular/core';
 export class PanelComponent {
   @Input() text: string = '';
 
-  pages: number = 0;
-  languages: number = 0;
+  constructor(public budgetList: BudgetService) { }
 
   addPage(): void {
-    this.pages++;
+    this.budgetList.pages++;
   }
 
   addLanguage(): void {
-    this.languages++;
+    this.budgetList.languages++;
   }
 
   removePage(): void {
-    if (this.pages > 0) this.pages--;
+    if (this.budgetList.pages > 0) this.budgetList.pages--;
   }
 
   removeLanguage(): void {
-    if (this.languages > 0) this.languages--;  }
+    if (this.budgetList.languages > 0) this.budgetList.languages--;
+  }
 }

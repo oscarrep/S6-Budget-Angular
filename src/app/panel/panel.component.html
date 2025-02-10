@@ -1,15 +1,15 @@
 <div class="container align-items-center justify-content-center d-flex">
     <div class="col-6 panel-item p-5 mx-3">
-        <div class="panel-div">
-            <p class="panel-txt ms-auto mx-2">Page amount</p>
+        <div class="panel-div d-flex align-items-center d-flex">
+            <p class="ms-auto mx-2 mb-0">Page amount</p>
             <button class="panel-btn mx-2" type="button" (click)="removePage()"> - </button>
-            <div class="panel-nums">{{pages}}</div>
+            <div class="panel-nums">{{budgetList.pages}}</div>
             <button class="panel-btn mx-2" type="button" (click)="addPage()"> + </button>
         </div>
-        <div class="panel-div">
-            <p class="panel-txt ms-auto mx-2">Languages</p>
+        <div class="panel-div d-flex align-items-center d-flex mt-2">
+            <p class="ms-auto mx-2 mb-0">Languages</p>
             <button class="panel-btn mx-2" type="button" (click)="removeLanguage()"> - </button>
-            <div class="panel-nums">{{languages}}</div>
+            <div class="panel-nums">{{budgetList.languages}}</div>
             <button class="panel-btn mx-2" type="button" (click)="addLanguage()"> + </button>
         </div>
     </div>
