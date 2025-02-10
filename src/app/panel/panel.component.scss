@@ -1,10 +1,40 @@
-.panel-item{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #ccc;
+.panel-txt {
+
+}
+
+.panel-item {
+    display: block;
+    border-bottom: 3px solid rgb(108, 8, 148);
     background-color: white;
-    border-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
     min-width: 500px;
+    margin-top: -30px;
     margin-bottom: 15px;
+}
+
+.panel-btn {
+    background-color: #AD5488;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    font-weight: bold;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.panel-div {
+    display: flex;
+}
+
+.panel-nums {
+    font-size: 20px;
+    border: 1px solid;
+    border-radius: 50px;
+    border-color: #AD5488;
+    width: 50px;
+    height: 30px;
+    text-align: center;
 }

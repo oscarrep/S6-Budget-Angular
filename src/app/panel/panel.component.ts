@@ -25,5 +25,5 @@ export class PanelComponent {
   }
 
   removeLanguage(): void {
-    if (this.pages > 0) this.languages--;  }
+    if (this.languages > 0) this.languages--;  }
 }
