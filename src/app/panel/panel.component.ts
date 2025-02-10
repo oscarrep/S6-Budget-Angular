@@ -21,9 +21,9 @@ export class PanelComponent {
   }
 
   removePage(): void {
-    if (this.pages >= 0) this.pages--;
+    if (this.pages > 0) this.pages--;
   }
 
   removeLanguage(): void {
-    if (this.pages >= 0) this.languages--;  }
+    if (this.pages > 0) this.languages--;  }
 }
