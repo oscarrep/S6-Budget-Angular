@@ -28,38 +28,34 @@
     <form class="form">
         <div class="row justify-content-center mt-4 d-flex">
             @for (list of listArr; track list) {
-            <div class="col-6 item p-2 shadow-lg mx-3 d-flex align-items-center">
-                <div class="mx-5 my-3">
+            <div class="col-6 item p-3 shadow-lg mx-3 d-flex align-items-center">
+                <div class="mx-4 my-3">
                     <h2 class="my-4">
                         {{list.title}} </h2>
                     <p>{{list.description}}</p>
                 </div>
-                <div class="ms-auto mx-5 d-flex">
+                <div class="ms-auto mx-3 d-flex">
                     <h1>
                         {{list.price}}
                     </h1>
-                    <p class="mx-2 currency">{{list.currency}}</p>
+                    <p class="mx-1 currency">{{list.currency}}</p>
 
                 </div>
                 <div class="ms-auto mx-2 d-flex">
                     @if(list.id !=2){
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
                         (change)="updateTotal(list.price, list.id)">
+                    <label class="mx-3" for="{{list.id}}">Add {{list.title}}</label>
                     }
                     @else{
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
                         (change)="togglePanel($event, list.id, list.price)">
-                        
-                    <app-panel>
-                        @if(list.showPanel==false){
-                        'Some text for ' + {{list.title}}
-                        }
-                    </app-panel>
-                    }
-
-
                     <label class="mx-3" for="{{list.id}}">Add {{list.title}}</label>
+                    }
                 </div>
+            </div>
+            <div> <!-- TOGGLES WEB CHECKBOX PANEL -->
+                @if(list.showPanel){<app-panel />}
             </div>
             }
             <div class="col-6 item p-2 shadow-lg d-flex align-items-center justify-content-center">

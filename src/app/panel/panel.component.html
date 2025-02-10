@@ -1,3 +1,14 @@
-<div class="panel">
-    dfgsdfgdsfgsdfgdfgdf
+<div class="panel-item d-block">
+    <div class="d-flex">
+        <p>Page amount</p>
+        <button class="btn btn-primary border rounded-pill" type="button" (click)="removePage()"> - </button>
+        <p>{{pages}}</p>
+        <button class="btn btn-primary border rounded-pill" type="button" (click)="addPage()"> + </button>
+    </div>
+    <div class="d-flex">
+        <p>Languages</p>
+        <button class="btn btn-primary border rounded-pill" type="button" (click)="removeLanguage()"> - </button>
+        <p>{{languages}}</p>
+        <button class="btn btn-primary border rounded-pill" type="button" (click)="addLanguage()"> + </button>
+    </div>
 </div>
