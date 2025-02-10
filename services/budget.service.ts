@@ -9,6 +9,7 @@ export class BudgetService {
   totalPrice: number = 0;
   pages: number = 1;
   languages: number = 1;
+  webTotal: number = 0;
 
   budgetList: List[] = [
     {
@@ -39,7 +40,7 @@ export class BudgetService {
       currency: '€',
       id: 2,
       checked: false,
-      showPanel: true,
+      showPanel: false,
     },
   ]
 
@@ -49,19 +50,32 @@ export class BudgetService {
     return this.budgetList;
   }
 
-  calculateTotal(formValue: any, id: number): number {
+  getPriceById(index:number){
+    return this.budgetList[index].price;
+  }
+
+  getId(index:number){
+    return this.budgetList[index].id;
+  }
+
+  calculateTotal(itemPrice: number, id: number): number {
 
     if (this.budgetList[id].checked === false) {
       this.budgetList[id].checked = true;
-      this.totalPrice += (formValue ? this.budgetList[id].price : 0);
+      this.totalPrice += (itemPrice ? this.budgetList[id].price : 0);
     }
     else if (this.budgetList[id].checked === true) {
       this.budgetList[id].checked = false;
-      this.totalPrice -= (formValue ? this.budgetList[id].price : 0);
+      this.totalPrice -= (itemPrice ? this.budgetList[id].price : 0);
     }
-
-
-
     return this.totalPrice;
+  }
+
+  calculateWebTotal(itemPrice: number, id: number): number {
+    this.webTotal = (this.pages * this.languages * 30);
+
+    this.calculateTotal(itemPrice, id);
+
+    return this.totalPrice = this.webTotal + this.totalPrice;
   }
 }

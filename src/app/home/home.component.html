@@ -44,7 +44,7 @@
                 <div class="ms-auto mx-2 d-flex">
                     @if(list.id !=2){
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
-                        (change)="updateTotal(list.price, list.id)">
+                        (change)="budgetList.calculateTotal(list.price, list.id)">
                     <label class="mx-3" for="{{list.id}}">Add {{list.title}}</label>
                     }
                     @else{
@@ -59,7 +59,7 @@
             </div>
             }
             <div class="col-6 item p-2 shadow-lg d-flex align-items-center justify-content-center">
-                <p class="price-txt my-1">Final Budget: {{budget}}€</p>
+                <p class="price-txt my-1">Final Budget: {{budgetList.totalPrice}}€</p>
             </div>
         </div>
     </form>

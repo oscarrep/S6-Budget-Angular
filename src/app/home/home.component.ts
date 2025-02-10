@@ -13,22 +13,17 @@ import { PanelComponent } from '../panel/panel.component';
 })
 export class HomeComponent implements OnInit {
   listArr: List[] = [];
-  budget = 0;
 
-  constructor(private budgetList: BudgetService) { }
+  constructor(public budgetList: BudgetService) { }
 
 
   ngOnInit(): void {
     this.listArr = this.budgetList.getBudgetList();
   }
 
-  updateTotal(price: number, id: number): void {
-    this.budget = this.budgetList.calculateTotal(price, id);
-  }
-
   togglePanel(event:Event, id:number, price:number):void{
 
-    this.updateTotal(price, id)
+    this.budgetList.calculateTotal(price, id);
 
     this.listArr[id].showPanel=(event.target as HTMLInputElement).checked
   }
