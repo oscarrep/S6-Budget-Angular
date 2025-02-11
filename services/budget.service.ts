@@ -10,6 +10,7 @@ export class BudgetService {
   pages: number = 1;
   languages: number = 1;
   webTotal: number = 0;
+  pageLanguage: number = 30;
 
   budgetList: List[] = [
     {
@@ -50,11 +51,11 @@ export class BudgetService {
     return this.budgetList;
   }
 
-  getPriceById(index:number){
+  getPriceById(index: number) {
     return this.budgetList[index].price;
   }
 
-  getId(index:number){
+  getId(index: number) {
     return this.budgetList[index].id;
   }
 
@@ -71,11 +72,10 @@ export class BudgetService {
     return this.totalPrice;
   }
 
-  calculateWebTotal(itemPrice: number, id: number): number {
-    this.webTotal = (this.pages * this.languages * 30);
+  calculateWebTotal(add: boolean): number {
 
-    this.calculateTotal(itemPrice, id);
-
-    return this.totalPrice = this.webTotal + this.totalPrice;
+    if (add === true) this.totalPrice = this.totalPrice + this.pageLanguage;
+    else if (add === false) this.totalPrice = this.totalPrice - this.pageLanguage;
+    return this.totalPrice;
   }
 }

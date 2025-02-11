@@ -11,35 +11,37 @@ import { BudgetService } from '../../../services/budget.service';
 export class PanelComponent {
   @Input() text: string = '';
 
-  price: number;
-  id: number;
+  price: number = 0;
+  id: number = 0;
+  add: boolean = false
 
-  constructor(public budgetList: BudgetService) {
-    this.price = this.budgetList.getPriceById(2);
-    this.id = this.budgetList.getId(2);
-  }
+  constructor(public budgetList: BudgetService) { }
 
   addPage(): void {
+    this.add = true;
     this.budgetList.pages++;
-    this.budgetList.calculateWebTotal(this.price, this.id);
+    this.budgetList.calculateWebTotal(this.add);
   }
 
   addLanguage(): void {
+    this.add = true;
     this.budgetList.languages++;
-    this.budgetList.calculateWebTotal(this.price, this.id);
+    this.budgetList.calculateWebTotal(this.add);
   }
 
   removePage(): void {
     if (this.budgetList.pages > 1) {
+      this.add = false;
       this.budgetList.pages--;
-      this.budgetList.calculateWebTotal(this.price, this.id);
+      this.budgetList.calculateWebTotal(this.add);
     }
   }
 
   removeLanguage(): void {
     if (this.budgetList.languages > 1) {
+      this.add = false;
       this.budgetList.languages--;
-      this.budgetList.calculateWebTotal(this.price, this.id);
+      this.budgetList.calculateWebTotal(this.add);
     }
   }
 }
