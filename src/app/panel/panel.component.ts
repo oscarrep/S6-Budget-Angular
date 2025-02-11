@@ -14,6 +14,8 @@ export class PanelComponent {
   price: number = 0;
   id: number = 0;
   add: boolean = false
+  popupP: boolean = false;
+  popupL: boolean = false;
 
   constructor(public budgetList: BudgetService) { }
 
@@ -43,5 +45,13 @@ export class PanelComponent {
       this.budgetList.languages--;
       this.budgetList.calculateWebTotal(this.add);
     }
+  }
+
+  openPopup(popup: boolean): void {
+    popup = true;
+  }
+
+  closePopup(popup:boolean): void {
+    popup = false;
   }
 }

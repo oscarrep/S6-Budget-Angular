@@ -1,18 +1,52 @@
 <div class="align-items-center justify-content-center d-flex">
     <div class="col-6 panel-item p-5 mx-3 z-0">
         <div class="panel-div d-flex align-items-center d-flex mt-4">
-            <button class="ms-auto info-btn"> i </button>
+            <button class="ms-auto info-btn" data-bs-toggle="modal" data-bs-target="#pageModal" type="button"> i
+            </button>
             <p class="mx-2 mb-0">Page amount</p>
             <button class="panel-btn mx-2" type="button" (click)="removePage()"> - </button>
             <div class="panel-nums">{{budgetList.pages}}</div>
             <button class="panel-btn mx-2" type="button" (click)="addPage()"> + </button>
         </div>
         <div class="panel-div d-flex align-items-center d-flex mt-2">
-            <button class="ms-auto info-btn"> i </button>
+            <button class="ms-auto info-btn" data-bs-toggle="modal" data-bs-target="#languageModal" type="button"> i
+            </button>
             <p class="mx-2 mb-0">Languages</p>
             <button class="panel-btn mx-2" type="button" (click)="removeLanguage()"> - </button>
             <div class="panel-nums">{{budgetList.languages}}</div>
             <button class="panel-btn mx-2" type="button" (click)="addLanguage()"> + </button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="pageModal" tabindex="-1" aria-labelledby="pageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close"> X </button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="modal-title" id="pageModalLabel">Page Amount</h5>
+                    <p>
+                        The number of pages for your webpage. <br>
+                        Each additional page has a 30€ cost.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="languageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close"> X </button>
+                    <h5 class="modal-title" id="languageModalLabel">Languages</h5>
+                    <p>
+                        Add all the languages your webpage will have. <br>
+                        Each additional language has a 30€ cost.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
