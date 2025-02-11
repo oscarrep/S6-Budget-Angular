@@ -9,6 +9,25 @@ h1 {
     font-size: 40px;
 }
 
+.form-div,
+.banner,
+.item,
+.flex-center {
+    display: flex;
+}
+
+.form-div,
+.banner,
+.flex-center {
+    justify-content: center;
+}
+
+.banner,
+.item,
+.flex-center {
+    align-items: center;
+}
+
 .banner,
 .item {
     background-color: white;
@@ -23,9 +42,6 @@ h1 {
 
 .banner {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     overflow: hidden;
     top: 5%;
@@ -48,6 +64,7 @@ h1 {
 
 .nav-link {
     margin-left: 5rem;
+    color: white;
 }
 
 .title,

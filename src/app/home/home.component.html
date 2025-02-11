@@ -1,13 +1,11 @@
 <div class="container overflow-hidden">
     <div class="row">
         <div class="navbar">
-            <div class="justify-content-center text-white">
-                <a class="nav-link" href="#">FrontEnder.Itacademy</a>
-            </div>
+            <a class="nav-link" href="#">FrontEnder.Itacademy</a>
         </div>
     </div>
     <div class="row">
-        <div class="justify-content-center d-flex align-items-center">
+        <div class="flex-center">
             <div class="banner col-11">
                 <div class="z-0 white"></div>
                 <div class="z-0 white2"></div>
@@ -26,9 +24,10 @@
         </div>
     </div>
     <form class="form">
-        <div class="row justify-content-center mt-4 d-flex">
+        <div class="row mt-4 form-div">
             @for (list of listArr; track list) {
-            <div class="col-6 item p-3 shadow-lg mx-3 d-flex align-items-center z-1"  [class.shadow-lg]="!list.showPanel" [class.shadow]="list.showPanel">
+            <div class="col-6 item p-3 shadow-lg mx-3 z-1" [class.shadow-lg]="!list.showPanel"
+                [class.shadow]="list.showPanel">
                 <div class="mx-4 my-3">
                     <h2 class="my-4">
                         {{list.title}} </h2>
@@ -58,7 +57,7 @@
                 @if(list.showPanel){<app-panel />}
             </div>
             }
-            <div class="col-6 item p-2 shadow-lg d-flex align-items-center justify-content-center">
+            <div class="col-6 item p-2 shadow-lg justify-content-center">
                 <p class="price-txt my-1">Final Budget: {{budgetList.totalPrice}}€</p>
             </div>
         </div>
