@@ -28,7 +28,7 @@
     <form class="form">
         <div class="row justify-content-center mt-4 d-flex">
             @for (list of listArr; track list) {
-            <div class="col-6 item p-3 shadow-lg mx-3 d-flex align-items-center">
+            <div class="col-6 item p-3 shadow-lg mx-3 d-flex align-items-center z-1"  [class.shadow-lg]="!list.showPanel" [class.shadow]="list.showPanel">
                 <div class="mx-4 my-3">
                     <h2 class="my-4">
                         {{list.title}} </h2>
@@ -45,12 +45,12 @@
                     @if(list.id !=2){
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
                         (change)="budgetList.calculateTotal(list.price, list.id)">
-                    <label class="mx-3" for="{{list.id}}">Add {{list.title}}</label>
+                    <label class="mx-3" for="{{list.id}}">Add</label>
                     }
                     @else{
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
                         (change)="togglePanel($event, list.id, list.price)">
-                    <label class="mx-3" for="{{list.id}}">Add {{list.title}}</label>
+                    <label class="mx-3" for="{{list.id}}">Add</label>
                     }
                 </div>
             </div>
