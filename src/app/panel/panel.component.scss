@@ -9,16 +9,28 @@
     margin-bottom: 15px;
 }
 
-.panel-btn {
-    background-color: #AD5488;
+.panel-btn, .info-btn {
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
     flex-shrink: 0;
     font-weight: bold;
-    color: white;
     border: none;
     cursor: pointer;
+}
+
+.panel-btn{
+    background-color: #AD5488;
+    color: white;
+    width: 30px;
+    height: 30px;
+}
+
+.info-btn {
+    background-color: white;
+    color: #AD5488;
+    outline: 2px solid #AD5488;
+    width: 20px;
+    height: 20px;
+    font-size: 13px;
 }
 
 .panel-div {
