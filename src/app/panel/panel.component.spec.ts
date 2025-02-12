@@ -20,4 +20,25 @@ describe('PanelComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should add a page', () => {
+    component.addPage();
+    expect(component.budgetList.pages).toBe(2);
+  });
+
+  it('should remove a page', () => {
+    component.removePage();
+    expect(component.budgetList.pages).toBe(1);
+  });
+
+  it('should increase the price by 30', () => {
+    component.budgetList.calculateWebTotal(true)
+    expect(component.budgetList.totalPrice).toBe(30);
+  })
+
+  it('should decrease the price by 30', () => {
+    component.budgetList.calculateWebTotal(false)
+    expect(component.budgetList.totalPrice).toBe(-30);
+  })
+
 });
