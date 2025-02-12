@@ -30,6 +30,16 @@ describe('PanelComponent', () => {
     component.removePage();
     expect(component.budgetList.pages).toBe(1);
   });
+  
+  it('should add a language', () => {
+    component.addLanguage();
+    expect(component.budgetList.languages).toBe(2);
+  });
+
+  it('should remove a language', () => {
+    component.removeLanguage();
+    expect(component.budgetList.languages).toBe(1);
+  });
 
   it('should increase the price by 30', () => {
     component.budgetList.calculateWebTotal(true)
