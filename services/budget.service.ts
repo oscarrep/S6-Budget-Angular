@@ -68,14 +68,21 @@ export class BudgetService {
     else if (this.budgetList[id].checked === true) {
       this.budgetList[id].checked = false;
       this.totalPrice -= (itemPrice ? this.budgetList[id].price : 0);
+      this.totalPrice = this.totalPrice - this.webTotal;
+      this.webTotal = 0;
     }
     return this.totalPrice;
   }
 
   calculateWebTotal(add: boolean): number {
-
-    if (add === true) this.totalPrice = this.totalPrice + this.pageLanguage;
-    else if (add === false) this.totalPrice = this.totalPrice - this.pageLanguage;
+    if (add === true) {
+      this.totalPrice = this.totalPrice + this.pageLanguage;
+      this.webTotal += this.pageLanguage
+    }
+    else if (add === false) {
+      this.totalPrice = this.totalPrice - this.pageLanguage;
+      this.webTotal -= this.pageLanguage
+    }
     return this.totalPrice;
   }
 }
