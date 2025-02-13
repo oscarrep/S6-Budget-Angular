@@ -22,11 +22,13 @@ export class HomeComponent implements OnInit {
     this.listArr = this.budgetList.getBudgetList();
   }
 
-  togglePanel(event:Event, id:number, price:number):void{
+  togglePanel(event: Event, id: number, price: number): void {
 
+    this.budgetList.pages = 1;
+    this.budgetList.languages = 1;
     this.budgetList.calculateTotal(price, id);
 
-    this.listArr[id].showPanel=(event.target as HTMLInputElement).checked
+    this.listArr[id].showPanel = (event.target as HTMLInputElement).checked
   }
 
 }
