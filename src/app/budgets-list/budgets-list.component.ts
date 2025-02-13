@@ -8,21 +8,4 @@ import { ReactiveFormsModule, FormBuilder, FormControl, FormGroup } from '@angul
   templateUrl: './budgets-list.component.html',
   styleUrl: './budgets-list.component.scss'
 })
-export class BudgetsListComponent {
-  formBudget!: FormGroup;
-
-  getFormBudget(){
-    return this.formBudget;
-  }
-
-  constructor(private builder: FormBuilder) { this.initializeForm(); }
-
-  private initializeForm(): void {
-    this.formBudget = this.builder.group({
-      seo: new FormControl(false),
-      ads: new FormControl(false),
-      web: new FormControl(false),
-    });
-  }
-
-}
+export class BudgetsListComponent { }

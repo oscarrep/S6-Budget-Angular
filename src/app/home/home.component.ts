@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { List } from '../interfaces/list';
 import { BudgetService } from '../../../services/budget.service';
 import { PanelComponent } from '../panel/panel.component';
+import { BudgetsListComponent } from '../budgets-list/budgets-list.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, PanelComponent],
+  imports: [CommonModule, PanelComponent, BudgetsListComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
