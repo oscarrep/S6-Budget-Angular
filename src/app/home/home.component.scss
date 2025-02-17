@@ -73,10 +73,9 @@ h1 {
     font-size: 30px;
 }
 
-.price-txt{
+.price-txt {
     text-align: right;
 }
-
 
 .checkbox-circle,
 .checkbox-circle:checked {
@@ -97,6 +96,25 @@ h1 {
 .checkbox-circle:checked {
     background-color: #AD5488;
     border: 3px solid white;
+}
+
+.home-button {
+    background-color: rgb(108, 8, 148);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 37px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.grey-form {
+    border: 1px solid grey;
+    width: 25%;
+    margin-left: 20px;
+    border-radius: 10px;
 }
 
 //SHAPES
