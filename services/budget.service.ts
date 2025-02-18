@@ -49,21 +49,21 @@ export class BudgetService {
 
   requestedBudgets: BudgetRequest[] = [
     {
-      name: 'John Doe',
+      name: 'Danny Roe',
       phone: 651234789,
       email: 'aaa@bc.com',
-      services: ['SEO', 'WEB', 'ADS'],
-      pages:1,
-      languages:1,
-      totalPrice: 1200
+      services: ['SEO', 'ADS', 'WEB'],
+      pages: 2,
+      languages: 2,
+      totalPrice: 1260
     },
     {
-      name: 'Janet Diaz',
+      name: 'Frankie Diaz',
       phone: 689456213,
-      email: 'aaa@bc.com',
+      email: 'zzz@ghgh.com',
       services: ['SEO', 'ADS'],
-      pages:0,
-      languages:0,
+      pages: 0,
+      languages: 0,
       totalPrice: 700
     },
   ]

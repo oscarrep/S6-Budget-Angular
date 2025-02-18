@@ -1,18 +1,49 @@
 <div class="row justify-content-center d-flex">
-    <div class="col-6 bl-item z-3 d-flex">
-            <div class="mx-5">
-                <h2>Name: {{home.budget.value.name}}</h2>
-                <p>Phone: {{home.budget.value.phone}}</p>
-                <p>Email: {{home.budget.value.email}}</p>
-            </div>
-            <div class="mx-5">
-                <h5>Services: <br>{{budgetList.checkedServices}} </h5>
-                <p>Pages: {{budgetList.pages}}</p>
-                <p>Languages: {{budgetList.languages}}</p>
-            </div>
-            <div class="mx-5">
-                <p>Total</p>
-                <p>{{budgetList.totalPrice}}€</p>
-            </div>
+    <!--<div class="col-6 bl-item z-3 d-flex">
+        <div class="mx-5">
+            <h2>Name: {{home.budget.value.name}}</h2>
+            <p>Phone: {{home.budget.value.phone}}</p>
+            <p>Email: {{home.budget.value.email}}</p>
+        </div>
+        <div class="mx-5">
+            <h5>Services: <br>{{budgetList.checkedServices}} </h5>
+            <p>Pages: {{budgetList.pages}}</p>
+            <p>Languages: {{budgetList.languages}}</p>
+        </div>
+        <div class="mx-5">
+            <p>Total</p>
+            <p>{{budgetList.totalPrice}}€</p>
+        </div>
+    </div>-->
+
+    @for(item of budgetList.requestedBudgets; track item){
+    <div class="col-6 bl-item p-3 shadow-lg mx-3 d-flex justify-content-between">
+        <div class="mx-4 my-3 bl-name bg-primary">
+            <h3 class="fw-bold">{{item.name}}</h3>
+            <p class="text-muted">{{item.email}}</p>
+            <p class="text-muted">{{item.phone}}</p>
+        </div>
+        <div class="mx-3 bl-services bg-danger">
+            <h6 class="fw-bold">Services:</h6>
+            <ul class="list-unstyled mb-0">
+                @for(service of item.services; track service){
+                <li class="d-flex align-items-start">• {{service}}
+                    @if(service === 'WEB'){
+                    <div class="text-muted d-none d-sm-inline ms-2">
+                        ({{item.pages}} pages, {{item.languages}} languages)
+                    </div>
+                    <div class="text-muted d-block d-sm-none ms-2">
+                        ({{item.pages}} pages, {{item.languages}} languages)
+                    </div>
+                    }
+                </li>
+                }
+            </ul>
+        </div>
+        <div class="mx-3 text-end bl-price bg-secondary">
+            <h6 class="text-muted">Total:</h6>
+            <h3 class="fw-bold">{{item.totalPrice}} €</h3>
+        </div>
     </div>
+    }
 </div>
