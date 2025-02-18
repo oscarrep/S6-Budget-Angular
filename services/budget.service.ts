@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { List } from '../src/app/interfaces/list';
+import { BudgetRequest } from '../src/app/interfaces/budget-request';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class BudgetService {
   languages: number = 1;
   webTotal: number = 0;
   pageLanguage: number = 30;
+  checkedServices: string[] = [];
 
   budgetList: List[] = [
     {
@@ -42,6 +44,27 @@ export class BudgetService {
       id: 2,
       checked: false,
       showPanel: false,
+    },
+  ]
+
+  requestedBudgets: BudgetRequest[] = [
+    {
+      name: 'John Doe',
+      phone: 651234789,
+      email: 'aaa@bc.com',
+      services: ['SEO', 'WEB', 'ADS'],
+      pages:1,
+      languages:1,
+      totalPrice: 1200
+    },
+    {
+      name: 'Janet Diaz',
+      phone: 689456213,
+      email: 'aaa@bc.com',
+      services: ['SEO', 'ADS'],
+      pages:0,
+      languages:0,
+      totalPrice: 700
     },
   ]
 

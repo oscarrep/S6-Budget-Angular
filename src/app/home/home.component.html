@@ -62,18 +62,23 @@
             </div>
         </div>
     </form>
-    <form class="form">
+    @if(budgetList.totalPrice!=0){
+    <form class="form" (formGroup)="form" (ngSubmit)="onSubmit($event)">
         <div class="row justify-content-center">
             <div class="col-6 item p-3 shadow-lg mx-3 z-2 align-items-center d-block">
                 <h2 class="mx-4 mt-4">Request Budget</h2>
                 <div class="mt-2 mb-4">
-                    <input class="my-3 grey-form" type="text" placeholder="  Name">
-                    <input class="grey-form" type="number" placeholder="  Phone">
-                    <input class="grey-form" type="text" placeholder="  Email">
-                    <button class="home-button" type="button">Submit</button>
+                    <input class="my-3 grey-form" type="text" placeholder="  Name" formControlName="name"
+                        aria-label="name">
+                    <input class="grey-form" type="number" placeholder="  Phone" formControlName="phone"
+                        aria-label="phone">
+                    <input class="grey-form" type="text" placeholder="  Email" formControlName="email"
+                        aria-label="email">
+                    <button class="home-button" type="submit">Submit</button>
                 </div>
             </div>
         </div>
     </form>
-    <app-budgets-list />
+}
+<app-budgets-list /> 
 </div>

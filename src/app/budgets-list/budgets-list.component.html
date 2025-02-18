@@ -1,5 +1,18 @@
 <div class="row justify-content-center d-flex">
-    <div class="col-6 bl-item z-3">
-       
+    <div class="col-6 bl-item z-3 d-flex">
+            <div class="mx-5">
+                <h2>Name: {{home.budget.value.name}}</h2>
+                <p>Phone: {{home.budget.value.phone}}</p>
+                <p>Email: {{home.budget.value.email}}</p>
+            </div>
+            <div class="mx-5">
+                <h5>Services: <br>{{budgetList.checkedServices}} </h5>
+                <p>Pages: {{budgetList.pages}}</p>
+                <p>Languages: {{budgetList.languages}}</p>
+            </div>
+            <div class="mx-5">
+                <p>Total</p>
+                <p>{{budgetList.totalPrice}}€</p>
+            </div>
     </div>
 </div>
