@@ -48,12 +48,12 @@
                     }
                     @else{
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
-                        (change)="togglePanel(list.id)">
+                        (change)="budgetList.togglePanel(list.id)">
                     <label class="mx-3" for="{{list.id}}">Add</label>
                     }
                 </div>
             </div>
-            <div> <!-- TOGGLES WEB CHECKBOX PANEL -->
+            <div>
                 @if(list.showPanel){<app-panel />}
             </div>
             }

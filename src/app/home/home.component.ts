@@ -69,13 +69,6 @@ export class HomeComponent {
     this.budgetList.webTotal.set(0);
   }
 
-  togglePanel(id: number): void {
-
-    this.budgetList.pages.set(1);
-    this.budgetList.languages.set(1);
-    this.budgetList.toggleService(id);
-  }
-
   getCheckedServices(): string[] {
     return [];
   }

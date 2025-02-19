@@ -21,28 +21,29 @@ export class PanelComponent {
 
   addPage(): void {
     this.add = true;
-    this.budgetList.pages.set(Number(this.budgetList.pages) + 1);
-    this.budgetList.calculateWebTotal(this.add);
+    this.budgetList.pages.update(pages => pages + 1);
+    this.budgetList.calculateWebTotal(true);
   }
 
   addLanguage(): void {
     this.add = true;
-    this.budgetList.languages.set(Number(this.budgetList.languages) + 1);
-    this.budgetList.calculateWebTotal(this.add);
+    this.budgetList.languages.update(languages => languages + 1);
+    this.budgetList.calculateWebTotal(true);
   }
 
   removePage(): void {
     if (this.budgetList.pages() > 1) {
       this.add = false;
-      this.budgetList.pages.set(Number(this.budgetList.pages) - 1);      this.budgetList.calculateWebTotal(this.add);
+      this.budgetList.pages.update(pages => pages > 0 ? pages - 1 : 0);
+      this.budgetList.calculateWebTotal(false);
     }
   }
 
   removeLanguage(): void {
     if (this.budgetList.languages() > 1) {
       this.add = false;
-      this.budgetList.languages.set(Number(this.budgetList.languages) - 1);
-      this.budgetList.calculateWebTotal(this.add);
+      this.budgetList.languages.update(languages => languages > 0 ? languages - 1 : 0);
+      this.budgetList.calculateWebTotal(false);
     }
   }
 
@@ -50,7 +51,7 @@ export class PanelComponent {
     popup = true;
   }
 
-  closePopup(popup:boolean): void {
+  closePopup(popup: boolean): void {
     popup = false;
   }
 }

@@ -77,15 +77,16 @@ export class BudgetService {
   }
 
   toggleService(id: number) {
-    this.budgetList.update(list =>
-      list.map(service => service.id === id ? { ...service, checked: !service.checked } : service)
-    );
+    this.budgetList.update(list => list.map(service => service.id === id ? 
+      { ...service, checked: !service.checked } : service));
   }
 
   togglePanel(id: number) {
-    this.budgetList.update(list =>
-      list.map(service => service.id === id ? { ...service, showPanel: !service.showPanel } : service)
-    );
+    this.pages.set(1);
+    this.languages.set(1);
+    this.budgetList.update(list => list.map(service => service.id === id ? 
+      { ...service, showPanel: !service.showPanel } : service));
+    this.toggleService(id);
   }
 
   calculateWebTotal(add: boolean) {
