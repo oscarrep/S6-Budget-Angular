@@ -42,12 +42,12 @@
                 </div>
                 <div class="ms-auto mx-2 d-flex">
                     @if(list.id !=2){
-                    <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
+                    <input type="checkbox" class="checkbox-circle" id="{{list.id}}" [checked]="list.checked"
                         (change)="budgetList.toggleService(list.id)">
                     <label class="mx-3" for="{{list.id}}">Add</label>
                     }
                     @else{
-                    <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
+                    <input type="checkbox" class="checkbox-circle" id="{{list.id}}" [checked]="list.checked"
                         (change)="budgetList.togglePanel(list.id)">
                     <label class="mx-3" for="{{list.id}}">Add</label>
                     }
@@ -67,18 +67,19 @@
         <div class="row justify-content-center">
             <div class="col-6 item p-3 shadow-lg mx-3 z-2 align-items-center d-block">
                 <h2 class="mx-4 mt-4">Request Budget</h2>
-                <div class="mt-2 mb-4">
+                <div class="mt-2 mb-4 d-flex">
                     <input class="my-3 grey-form" type="text" placeholder="  Name" formControlName="name"
                         aria-label="name">
-                    <input class="grey-form" type="number" placeholder="  Phone" formControlName="phone"
+                    <input class="my-3 grey-form" type="number" placeholder="  Phone" formControlName="phone"
                         aria-label="phone">
-                    <input class="grey-form" type="text" placeholder="  Email" formControlName="email"
+                    <input class="my-3 grey-form" type="text" placeholder="  Email" formControlName="email"
                         aria-label="email">
-                    <button class="home-button" type="submit">Submit</button>
+                    <button class="my-3 home-button-sm d-block d-xxl-none" type="submit">↑</button>
+                    <button class="my-3 home-button d-none d-xxl-block" type="submit">Submit</button>
                 </div>
             </div>
         </div>
     </form>
-}
-<app-budgets-list /> 
+    }
+    <app-budgets-list />
 </div>

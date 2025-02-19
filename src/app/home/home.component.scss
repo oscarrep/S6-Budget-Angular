@@ -98,16 +98,26 @@ h1 {
     border: 3px solid white;
 }
 
-.home-button {
+.home-button,
+.home-button-sm {
     background-color: rgb(108, 8, 148);
     color: white;
     border: none;
-    border-radius: 50px;
-    padding: 10px 37px;
     font-size: 15px;
-    font-weight: 500;
     margin-left: 20px;
     cursor: pointer;
+}
+
+.home-button {
+    border-radius: 50px;
+    padding: 1% 2.8%;
+    font-weight: 500;
+}
+
+.home-button-sm {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
 }
 
 .grey-form {
@@ -115,6 +125,7 @@ h1 {
     width: 25%;
     margin-left: 20px;
     border-radius: 10px;
+    max-height: 37px;
 }
 
 //SHAPES
