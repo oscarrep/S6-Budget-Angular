@@ -18,12 +18,12 @@
 
     @for(item of budgetList.requestedBudgets; track item){
     <div class="col-6 bl-item p-3 shadow-lg mx-3 d-flex justify-content-between">
-        <div class="mx-4 my-3 bl-name bg-primary">
+        <div class="mx-4 my-3 bl-name">
             <h3 class="fw-bold">{{item.name}}</h3>
             <p class="text-muted">{{item.email}}</p>
             <p class="text-muted">{{item.phone}}</p>
         </div>
-        <div class="mx-3 bl-services bg-danger">
+        <div class="mx-3 bl-services">
             <h6 class="fw-bold">Services:</h6>
             <ul class="list-unstyled mb-0">
                 @for(service of item.services; track service){
@@ -40,7 +40,7 @@
                 }
             </ul>
         </div>
-        <div class="mx-3 text-end bl-price bg-secondary">
+        <div class="mx-3 text-end bl-price">
             <h6 class="text-muted">Total:</h6>
             <h3 class="fw-bold">{{item.totalPrice}} €</h3>
         </div>

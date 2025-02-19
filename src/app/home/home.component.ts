@@ -10,16 +10,22 @@ import { FormBuilder, FormGroup, FormControl, Validators, ReactiveFormsModule } 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, PanelComponent, BudgetsListComponent],
+  imports: [CommonModule, PanelComponent, BudgetsListComponent, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
   listArr: List[] = [];
-  budget!: FormGroup;
+  form: FormGroup;
   showList = false;
 
-  constructor(public budgetList: BudgetService, public form: FormBuilder) { }
+  constructor(public budgetList: BudgetService, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern(/^[0-9]{9,15}$/)]]
+    });
+  }
 
 
   ngOnInit(): void {
@@ -28,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   private initForm(): void {
-    this.budget = this.form.group({
+    this.form = this.fb.group({
       seo: false,
       ads: false,
       web: false,
@@ -41,20 +47,46 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  submtBudget(event: Event) {
+  onSubmit(event: Event) {
     event.preventDefault();
-    if (this.budget.invalid) {
-      this.budget.markAllAsTouched();
+    if (this.form.invalid) {
+      alert('Please fill in all required fields correctly.');
       return;
     }
-
-    const selected = this.listArr.filter((type) => this.budget.get(type.title)?.value).map((type) => type.title);
-
+    const selectedServices = this.getSelectedServices();
+    this.pushRequest(selectedServices);
+    this.resetForm()
   }
 
-  onSubmit(event:Event) {
-    event.preventDefault();
-    this.showList = true;
+  getSelectedServices(): string[] {
+    const selectedServices = this.budgetList.budgetList
+      .filter(service => service.checked)
+      .map(service => service.title);
+    return selectedServices;
+  }
+
+  resetForm(): void {
+    this.form.reset();
+    this.budgetList.budgetList.forEach(service => (service.checked = false));
+    this.budgetList.totalPrice = 0;
+    this.budgetList.pages = 1;
+    this.budgetList.languages = 1;
+    this.budgetList.webTotal = 0;
+  }
+
+  pushRequest(selectedServices: string[]): void {
+    const newBudget: BudgetRequest = {
+      name: this.form.value.name,
+      email: this.form.value.email,
+      phone: this.form.value.phone,
+      services: selectedServices,
+      pages: this.budgetList.pages,
+      languages: this.budgetList.languages,
+      totalPrice: this.budgetList.totalPrice
+    };
+
+    this.budgetList.requestedBudgets.push(newBudget);
+    console.log('Budget saved:', newBudget);
   }
 
   togglePanel(event: Event, id: number, price: number): void {
