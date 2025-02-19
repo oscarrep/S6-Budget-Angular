@@ -25,7 +25,7 @@
     </div>
     <form class="form">
         <div class="row mt-4 form-div">
-            @for (list of listArr; track list) {
+            @for (list of budgetList.budgetList(); track list) {
             <div class="col-6 item p-3 shadow-lg mx-3 z-1" [class.shadow-lg]="!list.showPanel"
                 [class.shadow]="list.showPanel">
                 <div class="mx-4 my-3">
@@ -43,12 +43,12 @@
                 <div class="ms-auto mx-2 d-flex">
                     @if(list.id !=2){
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
-                        (change)="budgetList.calculateTotal(list.price, list.id)">
+                        (change)="budgetList.toggleService(list.id)">
                     <label class="mx-3" for="{{list.id}}">Add</label>
                     }
                     @else{
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}"
-                        (change)="togglePanel($event, list.id, list.price)">
+                        (change)="togglePanel(list.id)">
                     <label class="mx-3" for="{{list.id}}">Add</label>
                     }
                 </div>
@@ -58,11 +58,11 @@
             </div>
             }
             <div class="col-6 item p-2 shadow-lg z-2">
-                <p class="price-txt my-1 ms-auto mx-5">Final Budget: {{budgetList.totalPrice}}€</p>
+                <p class="price-txt my-1 ms-auto mx-5">Final Budget: {{budgetList.totalPrice()}}€</p>
             </div>
         </div>
     </form>
-    @if(budgetList.totalPrice!=0){
+    @if(budgetList.totalPrice() !== 0){
     <form class="form" [formGroup]="form" (ngSubmit)="onSubmit($event)">
         <div class="row justify-content-center">
             <div class="col-6 item p-3 shadow-lg mx-3 z-2 align-items-center d-block">

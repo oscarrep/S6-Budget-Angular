@@ -21,28 +21,27 @@ export class PanelComponent {
 
   addPage(): void {
     this.add = true;
-    this.budgetList.pages++;
+    this.budgetList.pages.set(Number(this.budgetList.pages) + 1);
     this.budgetList.calculateWebTotal(this.add);
   }
 
   addLanguage(): void {
     this.add = true;
-    this.budgetList.languages++;
+    this.budgetList.languages.set(Number(this.budgetList.languages) + 1);
     this.budgetList.calculateWebTotal(this.add);
   }
 
   removePage(): void {
-    if (this.budgetList.pages > 1) {
+    if (this.budgetList.pages() > 1) {
       this.add = false;
-      this.budgetList.pages--;
-      this.budgetList.calculateWebTotal(this.add);
+      this.budgetList.pages.set(Number(this.budgetList.pages) - 1);      this.budgetList.calculateWebTotal(this.add);
     }
   }
 
   removeLanguage(): void {
-    if (this.budgetList.languages > 1) {
+    if (this.budgetList.languages() > 1) {
       this.add = false;
-      this.budgetList.languages--;
+      this.budgetList.languages.set(Number(this.budgetList.languages) - 1);
       this.budgetList.calculateWebTotal(this.add);
     }
   }
