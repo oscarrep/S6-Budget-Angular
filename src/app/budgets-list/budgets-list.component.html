@@ -1,4 +1,11 @@
 <div class="row justify-content-center d-flex">
+    <div class="col-6 btn-div">
+        <button class="bl-button z-2 ms-3 d-flex" type="button" (click)="orderDate()">D↑</button>
+        <button class="bl-button z-2 ms-3 d-flex" type="button" (click)="orderPrice()">€↑</button>
+        <button class="bl-button z-2 mx-3 d-flex" type="button" (click)="orderAbc()">A↑</button>
+    </div>
+</div>
+<div class="row justify-content-center d-flex">
     @for(item of budgetList.requestedBudgets(); track item){
     <div class="col-6 bl-item p-3 shadow-lg mx-3 z-2 d-flex justify-content-between">
         <div class="mx-4 my-3 bl-name">
@@ -12,10 +19,7 @@
                 @for(service of item.services; track service){
                 <li class="d-flex align-items-start">• {{service}}
                     @if(service === 'WEB'){
-                    <div class="text-muted d-none d-sm-inline ms-2">
-                        ({{item.pages}} pages, {{item.languages}} languages)
-                    </div>
-                    <div class="text-muted d-block d-sm-none ms-2">
+                    <div class="text-muted ms-2">
                         ({{item.pages}} pages, {{item.languages}} languages)
                     </div>
                     }
