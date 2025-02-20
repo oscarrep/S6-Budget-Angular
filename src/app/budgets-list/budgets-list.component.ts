@@ -26,19 +26,26 @@ export class BudgetsListComponent {
   }
 
   orderDate() {
-    if (this.toggleDate === true) {
-      this.toggleDate = false;
-      const sortedBudgets = this.originalOrder.sort((a, b) => a.index - b.index).map(entry => entry.item);
-      this.budgetList.requestedBudgets.set(sortedBudgets);
-    } else if (this.toggleDate === false) {
-      this.toggleDate = true;
-      const sortedBudgets = this.originalOrder.sort((a, b) => b.index - a.index).map(entry => entry.item);
-      this.budgetList.requestedBudgets.set(sortedBudgets);
-    }
+    if (this.toggleDate === true) this.ascendingDate();
+    else if (this.toggleDate === false) this.descendingDate();
   }
+
+  ascendingDate() {
+    this.toggleDate = false;
+    const sortedBudgets = this.originalOrder.sort((a, b) => a.index - b.index).map(entry => entry.item);
+    this.budgetList.requestedBudgets.set(sortedBudgets);
+  }
+
+  descendingDate() {
+    this.toggleDate = true;
+    const sortedBudgets = this.originalOrder.sort((a, b) => b.index - a.index).map(entry => entry.item);
+    this.budgetList.requestedBudgets.set(sortedBudgets);
+  }
+
   orderPrice() {
 
   }
+
   orderAbc() {
 
   }
