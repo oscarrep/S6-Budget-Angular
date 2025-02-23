@@ -28,7 +28,7 @@ export class HomeComponent {
   totalPrice: Signal<number> = this.budgetList.totalPrice;
   requestedBudgets = this.budgetList.requestedBudgets;
 
-  onSubmit(event: Event) {
+  onSubmit(event: Event, budgetsListComp:BudgetsListComponent) {
     event.preventDefault();
     if (this.form.invalid) {
       alert('Please fill in all required fields correctly.');
@@ -37,7 +37,8 @@ export class HomeComponent {
 
     const selectedServices = this.getSelectedServices();
     this.pushRequest(selectedServices);
-    this.resetForm()
+    budgetsListComp.updateOriginalOrder();
+    this.resetForm();
   }
 
   getSelectedServices(): string[] {

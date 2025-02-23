@@ -68,6 +68,24 @@ export class BudgetService {
     pages: 0,
     languages: 0,
     totalPrice: 700
+  },
+  {
+    name: 'Jake Asdf',
+    phone: 675346751,
+    email: 'gtdjkl@po.com',
+    services: ['SEO', 'ADS', 'WEB'],
+    pages: 3,
+    languages: 2,
+    totalPrice: 1290
+  },
+  {
+    name: 'Pep Gg',
+    phone: 612345678,
+    email: 'pot@llll.com',
+    services: ['SEO', 'ADS', 'WEB'],
+    pages: 3,
+    languages: 3,
+    totalPrice: 1320
   }]);
 
   constructor() { }
@@ -96,31 +114,5 @@ export class BudgetService {
   addBudget(budget: BudgetRequest) {
     this.requestedBudgets.update(budgets => [...budgets, budget]);
   }
-
-  /*calculateTotal(itemPrice: number, id: number): number {
-
-    if (this.budgetList[id].checked === false) {
-      this.budgetList[id].checked = true;
-      this.totalPrice += (itemPrice ? this.budgetList[id].price : 0);
-    }
-    else if (this.budgetList[id].checked === true) {
-      this.budgetList[id].checked = false;
-      this.totalPrice -= (itemPrice ? this.budgetList[id].price : 0);
-      this.totalPrice = this.totalPrice - this.webTotal;
-      this.webTotal = 0;
-    }
-    return this.totalPrice;
-  }
-
-  calculateWebTotal(add: boolean): number {
-    if (add === true) {
-      this.totalPrice = this.totalPrice + this.pageLanguage;
-      this.webTotal += this.pageLanguage
-    }
-    else if (add === false) {
-      this.totalPrice = this.totalPrice - this.pageLanguage;
-      this.webTotal -= this.pageLanguage
-    }
-    return this.totalPrice;
-  }*/
+  
 }

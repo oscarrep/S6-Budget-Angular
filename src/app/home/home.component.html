@@ -63,7 +63,7 @@
         </div>
     </form>
     @if(budgetList.totalPrice() !== 0){
-    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit($event)">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit($event, budgetsListComp)">
         <div class="row justify-content-center">
             <div class="col-6 item p-3 shadow-lg mx-3 z-2 align-items-center d-block">
                 <h2 class="mx-4 mt-4">Request Budget</h2>
@@ -81,5 +81,5 @@
         </div>
     </form>
     }
-    <app-budgets-list />
+    <app-budgets-list #budgetsListComp></app-budgets-list>
 </div>
