@@ -24,8 +24,6 @@ export class BudgetsListComponent implements OnInit {
 
   ngOnInit() {
     this.updateOriginalOrder();
-    console.log('requestedbudgets')
-    console.log(this.budgetList.requestedBudgets())
   }
 
   updateOriginalOrder() {
@@ -34,8 +32,6 @@ export class BudgetsListComponent implements OnInit {
     this.originalOrder.forEach((budget, index) => {
       this.originalPositions.set(budget, index);
     });
-    console.log('originaorder')
-    console.log(this.originalOrder)
   }
 
   orderDate() {
@@ -63,14 +59,12 @@ export class BudgetsListComponent implements OnInit {
   ascendingPrice() {
     this.togglePrice = false;
     const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => a.totalPrice - b.totalPrice);
-    console.log(sortedBudgets);
     this.budgetList.requestedBudgets.set(sortedBudgets);
   }
 
   descendingPrice() {
     this.togglePrice = true;
     const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => b.totalPrice - a.totalPrice);
-    console.log(sortedBudgets);
     this.budgetList.requestedBudgets.set(sortedBudgets);
   }
 
