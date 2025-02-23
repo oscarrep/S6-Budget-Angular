@@ -69,7 +69,20 @@ export class BudgetsListComponent implements OnInit {
   }
 
   orderAbc() {
+    if (this.toggleAbc === true) this.ascendingAbc();
+    else if (this.toggleAbc === false) this.descendingAbc();
+  }
 
+  ascendingAbc() {
+    this.toggleAbc = false;
+    const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => a.name.localeCompare(b.name));
+    this.budgetList.requestedBudgets.set(sortedBudgets);
+  }
+
+  descendingAbc() {
+    this.toggleAbc = true;
+    const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => b.name.localeCompare(a.name));
+    this.budgetList.requestedBudgets.set(sortedBudgets);
   }
 
   getIndex(budget: BudgetRequest): number { return this.budgetList.requestedBudgets().indexOf(budget); }
