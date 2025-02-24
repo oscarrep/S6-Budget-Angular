@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { BudgetService } from '../../../services/budget.service';
 import { HomeComponent } from '../home/home.component';
 import { BudgetRequest } from '../interfaces/budget-request';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-budgets-list',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './budgets-list.component.html',
   styleUrl: './budgets-list.component.scss'
 })
@@ -18,6 +19,9 @@ export class BudgetsListComponent implements OnInit {
   toggleDate: boolean = false;
   togglePrice: boolean = false;
   toggleAbc: boolean = false;
+  filteredName: boolean = false;
+  searchName: string = '';
+  private search: BudgetRequest[] = [];
 
 
   constructor(public budgetList: BudgetService, public home: HomeComponent) { }
@@ -34,6 +38,8 @@ export class BudgetsListComponent implements OnInit {
     });
   }
 
+  showFilter(budget: BudgetRequest[]) { this.budgetList.requestedBudgets.set(budget); }
+
   orderDate() {
     this.toggleDate = !this.toggleDate;
     this.togglePrice = false;
@@ -44,12 +50,12 @@ export class BudgetsListComponent implements OnInit {
 
   ascendingDate() {
     const sortedBudgets = [...this.originalOrder].sort((a, b) => this.originalPositions.get(b)! - this.originalPositions.get(a)!);
-    this.budgetList.requestedBudgets.set(sortedBudgets);
+    this.showFilter(sortedBudgets);
   }
 
   descendingDate() {
     const sortedBudgets = [...this.originalOrder].sort((a, b) => this.originalPositions.get(a)! - this.originalPositions.get(b)!);
-    this.budgetList.requestedBudgets.set(sortedBudgets);
+    this.showFilter(sortedBudgets);
   }
 
   orderPrice() {
@@ -62,12 +68,12 @@ export class BudgetsListComponent implements OnInit {
 
   ascendingPrice() {
     const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => a.totalPrice - b.totalPrice);
-    this.budgetList.requestedBudgets.set(sortedBudgets);
+    this.showFilter(sortedBudgets);
   }
 
   descendingPrice() {
     const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => b.totalPrice - a.totalPrice);
-    this.budgetList.requestedBudgets.set(sortedBudgets);
+    this.showFilter(sortedBudgets);
   }
 
   orderAbc() {
@@ -80,11 +86,23 @@ export class BudgetsListComponent implements OnInit {
 
   ascendingAbc() {
     const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => a.name.localeCompare(b.name));
-    this.budgetList.requestedBudgets.set(sortedBudgets);
+    this.showFilter(sortedBudgets);
   }
 
   descendingAbc() {
     const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => b.name.localeCompare(a.name));
-    this.budgetList.requestedBudgets.set(sortedBudgets);
+    this.showFilter(sortedBudgets);
+  }
+
+  searchByName(name: string) {
+    if (name != '') {
+      this.filteredName = !this.filteredName;
+      this.search = [...this.originalOrder].filter((budget) => budget.name.toLowerCase().includes(name.toLowerCase()));
+    }
+    else {
+      this.search = this.originalOrder;
+      this.filteredName = false;
+    }
+    this.showFilter(this.search);
   }
 }

@@ -1,13 +1,24 @@
-.bl-item, .bl-button{
+.bl-item,
+.bl-button,
+.bl-search {
     background-color: white;
-    border-bottom: 5px solid rgb(108, 8, 148) !important    ;
+    border-bottom: 5px solid rgb(108, 8, 148) !important;
     align-items: center;
     display: flex;
     margin-bottom: 15px;
 }
 
-.bl-item {
+.bl-button,
+.bl-search {
+    justify-content: center;
+}
+
+.bl-item,
+.bl-search {
     border-radius: 50px;
+}
+
+.bl-item {
     min-width: 500px;
     max-height: 180px;
 }
@@ -15,26 +26,63 @@
 .bl-button {
     border: none;
     border-radius: 50%;
-    justify-content: center;
     width: 40px;
     height: 40px;
     cursor: pointer;
+
+    .bl-button-img {
+        width: 23px;
+        height: 23px;
+    }
 }
 
-.btn-div{
+.btn-div {
     min-width: 500px;
     display: flex;
     justify-content: end;
 }
 
-.bl-name{
-    flex-basis: 30%; max-width: 30%;
+.bl-name {
+    flex-basis: 30%;
+    max-width: 30%;
 }
 
-.bl-services{
-    flex-basis: 30%; max-width: 30%;
+.bl-services {
+    flex-basis: 30%;
+    max-width: 30%;
 }
 
-.bl-price{
-    flex-basis: 20%; max-width: 20%;
+.bl-price {
+    flex-basis: 20%;
+    max-width: 20%;
+}
+
+.bl-input {
+    border: 1px solid grey;
+    width: 80%;
+    margin-left: 20px;
+    border-radius: 10px;
+    max-height: 37px;
+}
+
+.bl-search-btn {
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(255, 206, 116);
+    height: 25px;
+    width: 25px;
+    margin-left: 2%;
+    margin-right: 5%;
+    align-items: center;
+
+    .bl-search-img{
+        width: 15px;
+        height: 15px;
+        margin-bottom: 4px;
+    }
+}
+
+.centered-flex {
+    display: flex;
+    justify-content: center;
 }

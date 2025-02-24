@@ -1,17 +1,25 @@
-<div class="row justify-content-center d-flex">
+<div class="row centered-flex">
     <div class="col-6 btn-div">
-        <button class="bl-button z-2 ms-3 d-flex" type="button" (click)="orderDate()">
-            {{ toggleDate ? 'D↑' : 'D↓' }}
+        @if(filteredName){
+        <button class="bl-button z-2 mx-3 d-flex" type="button" (click)="searchByName('')">
+            <img class="bl-button-img" [src]='"assets/images/back.png"'>
         </button>
-        <button class="bl-button z-2 ms-3 d-flex" type="button" (click)="orderPrice()">
-            {{ togglePrice ? '€↑' : '€↓' }}
-        </button>
-        <button class="bl-button z-2 mx-3 d-flex" type="button" (click)="orderAbc()">
-            {{ toggleAbc ? 'Ab↑' : 'Ab↓' }}
-        </button>
+        }
+        <div class="bl-search z-2">
+            <input class="bl-input" type="text" placeholder="Search by name" (keydown.enter)="searchByName(searchName)"
+                [(ngModel)]="searchName">
+            <button class="bl-search-btn" type="image" (click)="searchByName(searchName)">
+                <img class="bl-search-img" [src]='"assets/images/search.png"'></button>
+        </div>
+        <button class="bl-button z-2 ms-3 d-flex" type="image" (click)="orderDate()">
+            <img class="bl-button-img" [src]="toggleDate ? 'assets/images/date-ascending.png':'assets/images/date-descending.png'"></button>
+        <button class="bl-button z-2 ms-3 d-flex" type="image" (click)="orderPrice()">
+            <img class="bl-button-img" [src]="togglePrice ? 'assets/images/price-ascending.png':'assets/images/price-descending.png'"></button>
+        <button class="bl-button z-2 mx-3 d-flex" type="image" (click)="orderAbc()">
+            <img class="bl-button-img" [src]="toggleAbc ? 'assets/images/az-ascending.png':'assets/images/az-descending.png'"></button>
     </div>
 </div>
-<div class="row justify-content-center d-flex">
+<div class="row centered-flex">
     @for(item of budgetList.requestedBudgets(); track item){
     <div class="col-6 bl-item p-3 shadow-lg mx-3 z-2 d-flex justify-content-between">
         <div class="mx-4 my-3 bl-name">
