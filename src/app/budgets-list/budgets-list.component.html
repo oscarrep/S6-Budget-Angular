@@ -1,8 +1,14 @@
 <div class="row justify-content-center d-flex">
     <div class="col-6 btn-div">
-        <button class="bl-button z-2 ms-3 d-flex" type="button" (click)="orderDate()">D↑</button>
-        <button class="bl-button z-2 ms-3 d-flex" type="button" (click)="orderPrice()">€↑</button>
-        <button class="bl-button z-2 mx-3 d-flex" type="button" (click)="orderAbc()">A↑</button>
+        <button class="bl-button z-2 ms-3 d-flex" type="button" (click)="orderDate()">
+            {{ toggleDate ? 'D↑' : 'D↓' }}
+        </button>
+        <button class="bl-button z-2 ms-3 d-flex" type="button" (click)="orderPrice()">
+            {{ togglePrice ? '€↑' : '€↓' }}
+        </button>
+        <button class="bl-button z-2 mx-3 d-flex" type="button" (click)="orderAbc()">
+            {{ toggleAbc ? 'Ab↑' : 'Ab↓' }}
+        </button>
     </div>
 </div>
 <div class="row justify-content-center d-flex">

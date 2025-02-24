@@ -14,9 +14,9 @@ import { BudgetRequest } from '../interfaces/budget-request';
 export class BudgetsListComponent implements OnInit {
 
   private originalOrder: BudgetRequest[] = [];
-  private originalPositions: Map<BudgetRequest, number>=new Map();
+  private originalPositions: Map<BudgetRequest, number> = new Map();
   toggleDate: boolean = false;
-  togglePrice: boolean = true;
+  togglePrice: boolean = false;
   toggleAbc: boolean = false;
 
 
@@ -35,52 +35,55 @@ export class BudgetsListComponent implements OnInit {
   }
 
   orderDate() {
+    this.toggleDate = !this.toggleDate;
+    this.togglePrice = false;
+    this.toggleAbc = false;
     if (this.toggleDate === true) this.ascendingDate();
     else if (this.toggleDate === false) this.descendingDate();
   }
 
   ascendingDate() {
-    this.toggleDate = false;
-    const sortedBudgets = [...this.originalOrder].sort((a, b) => this.originalPositions.get(a)! - this.originalPositions.get(b)!);
-    this.budgetList.requestedBudgets.set(sortedBudgets);
-  }
-
-  descendingDate() {
-    this.toggleDate = true;
     const sortedBudgets = [...this.originalOrder].sort((a, b) => this.originalPositions.get(b)! - this.originalPositions.get(a)!);
     this.budgetList.requestedBudgets.set(sortedBudgets);
   }
 
+  descendingDate() {
+    const sortedBudgets = [...this.originalOrder].sort((a, b) => this.originalPositions.get(a)! - this.originalPositions.get(b)!);
+    this.budgetList.requestedBudgets.set(sortedBudgets);
+  }
+
   orderPrice() {
+    this.toggleDate = false;
+    this.togglePrice = !this.togglePrice;
+    this.toggleAbc = false;
     if (this.togglePrice === true) this.ascendingPrice();
     else if (this.togglePrice === false) this.descendingPrice();
   }
 
   ascendingPrice() {
-    this.togglePrice = false;
     const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => a.totalPrice - b.totalPrice);
     this.budgetList.requestedBudgets.set(sortedBudgets);
   }
 
   descendingPrice() {
-    this.togglePrice = true;
     const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => b.totalPrice - a.totalPrice);
     this.budgetList.requestedBudgets.set(sortedBudgets);
   }
 
   orderAbc() {
+    this.toggleDate = false;
+    this.togglePrice = false;
+    this.toggleAbc = !this.toggleAbc;
     if (this.toggleAbc === true) this.ascendingAbc();
     else if (this.toggleAbc === false) this.descendingAbc();
   }
 
   ascendingAbc() {
-    this.toggleAbc = false;
     const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => a.name.localeCompare(b.name));
     this.budgetList.requestedBudgets.set(sortedBudgets);
   }
 
   descendingAbc() {
-    this.toggleAbc = true;
     const sortedBudgets = [...this.budgetList.requestedBudgets()].sort((a, b) => b.name.localeCompare(a.name));
     this.budgetList.requestedBudgets.set(sortedBudgets);
   }
