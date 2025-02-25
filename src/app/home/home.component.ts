@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Component, Signal, inject } from '@angular/core';
+import { Component, Signal, inject, OnInit } from '@angular/core';
 import { BudgetService } from '../../../services/budget.service';
 import { PanelComponent } from '../panel/panel.component';
 import { BudgetsListComponent } from '../budgets-list/budgets-list.component';
@@ -14,7 +14,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './home.component.scss'
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   private fb = inject(FormBuilder);
   budgetList = inject(BudgetService);
 
@@ -28,6 +28,10 @@ export class HomeComponent {
   requestedBudgets = this.budgetList.requestedBudgets;
 
   constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    this.parseUrl();
+  }
 
   onSubmit(event: Event, budgetsListComp: BudgetsListComponent) {
     event.preventDefault();
@@ -51,6 +55,17 @@ export class HomeComponent {
       params.append('languages', this.budgetList.languages().toString());
     }
     this.router.navigate([], { queryParams: Object.fromEntries(params) });
+  }
+  parseUrl(): void {
+    const params = new URLSearchParams(window.location.search);
+    this.budgetList.budgetList().forEach(service => {
+      service.checked = params.has(service.title);
+    });
+    if (params.get('WEB') === 'true') {
+      this.budgetList.setPages(parseInt(params.get('pages') || '0', 10));
+      this.budgetList.setLanguages(parseInt(params.get('languages') || '0', 10));
+      this.budgetList.showPanel();
+    }
   }
 
   getSelectedServices(): string[] {

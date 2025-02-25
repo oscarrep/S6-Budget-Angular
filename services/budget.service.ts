@@ -21,7 +21,7 @@ export class BudgetService {
   budgetList = signal<List[]>([
     {
       title: 'SEO',
-      description: 'Programming a complete and responsive web',
+      description: 'Setting up the SEO of your website',
       bgColor: 'white',
       price: 300,
       currency: '€',
@@ -31,7 +31,7 @@ export class BudgetService {
     },
     {
       title: 'ADS',
-      description: 'Programming a complete and responsive web',
+      description: 'Setting up a marketing campaign to promote your website',
       bgColor: 'white',
       price: 400,
       currency: '€',
@@ -90,29 +90,35 @@ export class BudgetService {
 
   constructor() { }
 
-  getBudgetList() {
-    return this.budgetList;
-  }
+  getBudgetList() { return this.budgetList; }
 
   toggleService(id: number) {
-    this.budgetList.update(list => list.map(service => service.id === id ? 
+    this.budgetList.update(list => list.map(service => service.id === id ?
       { ...service, checked: !service.checked } : service));
   }
 
   togglePanel(id: number) {
     this.pages.set(1);
     this.languages.set(1);
-    this.budgetList.update(list => list.map(service => service.id === id ? 
+    this.budgetList.update(list => list.map(service => service.id === id ?
       { ...service, showPanel: !service.showPanel } : service));
     this.toggleService(id);
   }
 
-  calculateWebTotal(add: boolean) {
-    this.webTotal.update(total => add ? total + this.pageLanguage : total - this.pageLanguage);
+  showPanel() {
+    this.budgetList.update(list => list.map(service => service.id === 2 ?
+      { ...service, showPanel: !service.showPanel } : service));
   }
 
-  addBudget(budget: BudgetRequest) {
-    this.requestedBudgets.update(budgets => [...budgets, budget]);
+  calculateWebTotal(add: boolean) {
+    this.webTotal.update(total => add ?
+      total + this.pageLanguage : total - this.pageLanguage);
   }
-  
+
+  addBudget(budget: BudgetRequest) { this.requestedBudgets.update(budgets => [...budgets, budget]); }
+
+  setPages(pages: number) { this.pages.set(pages); }
+
+  setLanguages(languages: number) { this.languages.set(languages); }
+
 }
