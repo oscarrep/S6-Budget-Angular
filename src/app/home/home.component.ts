@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, Signal, computed, inject } from '@angular/core';
-import { List } from '../interfaces/list';
+import { Router } from '@angular/router';
+import { Component, Signal, inject } from '@angular/core';
 import { BudgetService } from '../../../services/budget.service';
 import { PanelComponent } from '../panel/panel.component';
 import { BudgetsListComponent } from '../budgets-list/budgets-list.component';
-import { BudgetRequest } from '../interfaces/budget-request';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -28,7 +27,9 @@ export class HomeComponent {
   totalPrice: Signal<number> = this.budgetList.totalPrice;
   requestedBudgets = this.budgetList.requestedBudgets;
 
-  onSubmit(event: Event, budgetsListComp:BudgetsListComponent) {
+  constructor(private router: Router) { }
+
+  onSubmit(event: Event, budgetsListComp: BudgetsListComponent) {
     event.preventDefault();
     if (this.form.invalid) {
       alert('Please fill in all required fields correctly.');
@@ -39,6 +40,17 @@ export class HomeComponent {
     this.pushRequest(selectedServices);
     budgetsListComp.updateOriginalOrder();
     this.resetForm();
+  }
+
+  updateUrl(): void {
+    const selectedServices = this.getSelectedServices();
+    const params = new URLSearchParams();
+    selectedServices.forEach(service => params.append(service, 'true'));
+    if (params.get('WEB') === 'true') {
+      params.append('pages', this.budgetList.pages().toString());
+      params.append('languages', this.budgetList.languages().toString());
+    }
+    this.router.navigate([], { queryParams: Object.fromEntries(params) });
   }
 
   getSelectedServices(): string[] {
@@ -68,17 +80,5 @@ export class HomeComponent {
     this.budgetList.pages.set(1);
     this.budgetList.languages.set(1);
     this.budgetList.webTotal.set(0);
-  }
-
-  getCheckedServices(): string[] {
-    return [];
-  }
-
-  getPages(): number {
-    return 0;
-  }
-
-  getLanguages(): number {
-    return 0;
   }
 }

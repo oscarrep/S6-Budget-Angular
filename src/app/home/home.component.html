@@ -43,12 +43,12 @@
                 <div class="ms-auto mx-2 d-flex">
                     @if(list.id !=2){
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}" [checked]="list.checked"
-                        (change)="budgetList.toggleService(list.id)">
+                        (change)="budgetList.toggleService(list.id); updateUrl()">
                     <label class="mx-3" for="{{list.id}}">Add</label>
                     }
                     @else{
                     <input type="checkbox" class="checkbox-circle" id="{{list.id}}" [checked]="list.checked"
-                        (change)="budgetList.togglePanel(list.id)">
+                        (change)="budgetList.togglePanel(list.id); updateUrl()">
                     <label class="mx-3" for="{{list.id}}">Add</label>
                     }
                 </div>
