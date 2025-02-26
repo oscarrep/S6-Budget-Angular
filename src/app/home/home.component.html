@@ -1,12 +1,17 @@
 <div class="container overflow-hidden">
-    <div class="row">
-        <div class="navbar">
+    <div class="row d-sm-block d-xxl-none">
+        <div class="navbar flex-center">
             <a class="nav-link" href="#">FrontEnder.Itacademy</a>
+        </div>
+    </div>
+    <div class="row d-none d-xxl-flex">
+        <div class="navbar">
+            <a class="nav-link ms-5" href="#">FrontEnder.Itacademy</a>
         </div>
     </div>
     <div class="row">
         <div class="flex-center">
-            <div class="banner col-11">
+            <div class="banner col-sm-11 col-xxl-8">
                 <div class="z-0 white"></div>
                 <div class="z-0 white2"></div>
                 <div class="z-0 white3"></div>
@@ -26,7 +31,7 @@
     <form class="form">
         <div class="row mt-4 form-div">
             @for (list of budgetList.budgetList(); track list) {
-            <div class="col-6 item p-3 shadow-lg mx-3 z-1" [class.shadow-lg]="!list.showPanel"
+            <div class="col-9 col-xxl-6 item p-3 shadow-lg mx-3 z-1" [class.shadow-lg]="!list.showPanel"
                 [class.shadow]="list.showPanel">
                 <div class="mx-4 my-3 name-desc">
                     <h2 class="my-4">
@@ -57,7 +62,7 @@
                 @if(list.showPanel){<app-panel />}
             </div>
             }
-            <div class="col-6 item p-2 shadow-lg z-2">
+            <div class="col-xxl-6 col-9 item p-2 shadow-lg z-2">
                 <p class="price-txt my-1 ms-auto mx-5">Final Budget: {{budgetList.totalPrice()}}€</p>
             </div>
         </div>
@@ -65,7 +70,7 @@
     @if(budgetList.totalPrice() !== 0){
     <form class="form" [formGroup]="form" (ngSubmit)="onSubmit($event, budgetsListComp)">
         <div class="row justify-content-center">
-            <div class="col-6 item p-3 shadow-lg mx-3 z-2 align-items-center d-block">
+            <div class="col-xxl-6 col-9 item p-3 shadow-lg mx-3 z-2 align-items-center d-block">
                 <h2 class="mx-4 mt-4">Request Budget</h2>
                 <div class="mt-2 mb-4 d-flex">
                     <input class="my-3 grey-form" type="text" placeholder="  Name" formControlName="name"
