@@ -1,12 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BudgetService } from '../../../services/budget.service';
 import { HomeComponent } from '../home/home.component';
+import { ModalComponent } from "../shared/modal/modal.component";
 
 
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
-  styleUrl: './panel.component.scss'
+  styleUrl: './panel.component.scss',
+  imports: [ModalComponent]
 })
 export class PanelComponent implements OnInit {
   @Input() text: string = '';
