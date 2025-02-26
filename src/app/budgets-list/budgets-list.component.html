@@ -2,24 +2,24 @@
     <div class="col-6 btn-div">
         @if(filteredName){
         <button class="bl-button z-2 mx-3 d-flex" type="button" (click)="searchByName('')">
-            <img class="bl-button-img" [src]='"assets/images/back.png"'>
+            <img class="bl-button-img" [src]='"assets/images/back.svg"'>
         </button>
         }
         <div class="bl-search z-2">
             <input class="bl-input" type="text" placeholder="Search by name" (keydown.enter)="searchByName(searchName)"
                 [(ngModel)]="searchName">
             <button class="bl-search-btn" type="image" (click)="searchByName(searchName)">
-                <img class="bl-search-img" [src]='"assets/images/search.png"'></button>
+                <img class="bl-search-img" [src]='"assets/images/search.svg"'></button>
         </div>
         <button class="bl-button z-2 ms-3 d-flex" type="image" (click)="orderDate()">
             <img class="bl-button-img"
-                [src]="toggleDate ? 'assets/images/date-ascending.png':'assets/images/date-descending.png'"></button>
+                [src]="toggleDate ? 'assets/images/date-ascending.svg':'assets/images/date-descending.svg'"></button>
         <button class="bl-button z-2 ms-3 d-flex" type="image" (click)="orderPrice()">
             <img class="bl-button-img"
-                [src]="togglePrice ? 'assets/images/price-ascending.png':'assets/images/price-descending.png'"></button>
+                [src]="togglePrice ? 'assets/images/price-ascending.svg':'assets/images/price-descending.svg'"></button>
         <button class="bl-button z-2 mx-3 d-flex" type="image" (click)="orderAbc()">
             <img class="bl-button-img"
-                [src]="toggleAbc ? 'assets/images/az-ascending.png':'assets/images/az-descending.png'"></button>
+                [src]="toggleAbc ? 'assets/images/az-ascending.svg':'assets/images/az-descending.svg'"></button>
     </div>
 </div>
 <div class="row centered-flex">
