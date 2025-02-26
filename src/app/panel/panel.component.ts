@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BudgetService } from '../../../services/budget.service';
 import { HomeComponent } from '../home/home.component';
 
@@ -8,7 +8,7 @@ import { HomeComponent } from '../home/home.component';
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
 })
-export class PanelComponent {
+export class PanelComponent implements OnInit {
   @Input() text: string = '';
 
   price: number = 0;
@@ -18,6 +18,11 @@ export class PanelComponent {
   popupL: boolean = false;
 
   constructor(public budgetList: BudgetService, public home: HomeComponent) { }
+
+  ngOnInit(): void {
+    this.calcPages();
+    this.calcLanguages();
+  }
 
   addPage(): void {
     this.add = true;
@@ -51,11 +56,14 @@ export class PanelComponent {
     }
   }
 
-  openPopup(popup: boolean): void {
-    popup = true;
+  calcPages() {
+    for (let i = 1; i < this.budgetList.pages(); i++) {
+      this.budgetList.calculateWebTotal(true);
+    }
   }
-
-  closePopup(popup: boolean): void {
-    popup = false;
+  calcLanguages() {
+    for (let i = 1; i < this.budgetList.languages(); i++) {
+      this.budgetList.calculateWebTotal(true);
+    }
   }
 }

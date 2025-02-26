@@ -28,12 +28,12 @@
             @for (list of budgetList.budgetList(); track list) {
             <div class="col-6 item p-3 shadow-lg mx-3 z-1" [class.shadow-lg]="!list.showPanel"
                 [class.shadow]="list.showPanel">
-                <div class="mx-4 my-3">
+                <div class="mx-4 my-3 name-desc">
                     <h2 class="my-4">
                         {{list.title}} </h2>
                     <p>{{list.description}}</p>
                 </div>
-                <div class="ms-auto mx-3 d-flex">
+                <div class="ms-auto mx-3 d-flex price-box">
                     <h1>
                         {{list.price}}
                     </h1>

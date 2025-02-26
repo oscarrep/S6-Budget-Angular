@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
     }
     this.router.navigate([], { queryParams: Object.fromEntries(params) });
   }
+  
   parseUrl(): void {
     const params = new URLSearchParams(window.location.search);
     this.budgetList.budgetList().forEach(service => {

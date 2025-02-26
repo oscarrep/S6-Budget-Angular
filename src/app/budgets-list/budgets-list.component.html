@@ -12,11 +12,14 @@
                 <img class="bl-search-img" [src]='"assets/images/search.png"'></button>
         </div>
         <button class="bl-button z-2 ms-3 d-flex" type="image" (click)="orderDate()">
-            <img class="bl-button-img" [src]="toggleDate ? 'assets/images/date-ascending.png':'assets/images/date-descending.png'"></button>
+            <img class="bl-button-img"
+                [src]="toggleDate ? 'assets/images/date-ascending.png':'assets/images/date-descending.png'"></button>
         <button class="bl-button z-2 ms-3 d-flex" type="image" (click)="orderPrice()">
-            <img class="bl-button-img" [src]="togglePrice ? 'assets/images/price-ascending.png':'assets/images/price-descending.png'"></button>
+            <img class="bl-button-img"
+                [src]="togglePrice ? 'assets/images/price-ascending.png':'assets/images/price-descending.png'"></button>
         <button class="bl-button z-2 mx-3 d-flex" type="image" (click)="orderAbc()">
-            <img class="bl-button-img" [src]="toggleAbc ? 'assets/images/az-ascending.png':'assets/images/az-descending.png'"></button>
+            <img class="bl-button-img"
+                [src]="toggleAbc ? 'assets/images/az-ascending.png':'assets/images/az-descending.png'"></button>
     </div>
 </div>
 <div class="row centered-flex">
@@ -31,13 +34,23 @@
             <h6 class="fw-bold">Services:</h6>
             <ul class="list-unstyled mb-0">
                 @for(service of item.services; track service){
-                <li class="d-flex align-items-start">• {{service}}
-                    @if(service === 'WEB'){
+                <div class="d-block d-xxl-none">
+                    <li class="d-flex align-items-start">• {{service}} 
+                    </li>@if(service === 'WEB'){
                     <div class="text-muted ms-2">
                         ({{item.pages}} pages, {{item.languages}} languages)
                     </div>
                     }
-                </li>
+                </div>
+                <div class="d-none d-xxl-block">
+                    <li class="d-flex align-items-start">• {{service}}
+                        @if(service === 'WEB'){
+                        <div class="text-muted ms-2">
+                            ({{item.pages}} pages, {{item.languages}} languages)
+                        </div>
+                        }
+                    </li>
+                </div>
                 }
             </ul>
         </div>

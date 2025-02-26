@@ -98,6 +98,16 @@ h1 {
     border: 3px solid white;
 }
 
+.name-desc {
+    flex-basis: 40%;
+    max-width: 40%;
+}
+
+.price-box {
+    flex-basis: 30%;
+    max-width: 30%;
+}
+
 .home-button,
 .home-button-sm {
     background-color: rgb(108, 8, 148);
