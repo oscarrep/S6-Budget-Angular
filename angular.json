@@ -17,7 +17,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "allowedCommonJsDependencies": ["zone.js"],
             "outputPath": "dist/budget",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -43,8 +42,7 @@
               "node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
-              "node_modules/zone.js/dist/zone.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
             ]
           },
           "configurations": {
