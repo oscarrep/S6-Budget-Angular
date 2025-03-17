@@ -17,6 +17,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class HomeComponent implements OnInit {
   private fb = inject(FormBuilder);
   budgetList = inject(BudgetService);
+  submitted: boolean = false;
 
   form: FormGroup = this.fb.group({
     name: ['', Validators.required],
@@ -35,8 +36,8 @@ export class HomeComponent implements OnInit {
 
   onSubmit(event: Event, budgetsListComp: BudgetsListComponent) {
     event.preventDefault();
+    this.submitted = true;
     if (this.form.invalid) {
-      alert('Please fill in all required fields correctly.');
       return;
     }
 
@@ -56,7 +57,7 @@ export class HomeComponent implements OnInit {
     }
     this.router.navigate([], { queryParams: Object.fromEntries(params) });
   }
-  
+
   parseUrl(): void {
     const params = new URLSearchParams(window.location.search);
     this.budgetList.budgetList().forEach(service => {
@@ -96,5 +97,6 @@ export class HomeComponent implements OnInit {
     this.budgetList.pages.set(1);
     this.budgetList.languages.set(1);
     this.budgetList.webTotal.set(0);
+    this.submitted = false;
   }
 }

@@ -125,16 +125,16 @@ h1 {
 
 .home-button-sm {
     border-radius: 50%;
-    width: 40px;
+    min-width: 40px;
     height: 40px;
 }
 
 .grey-form {
     border: 1px solid grey;
-    width: 25%;
+    width: 80%;
     margin-left: 20px;
     border-radius: 10px;
-    max-height: 37px;
+    height: 35px;
 }
 
 //SHAPES
@@ -241,4 +241,20 @@ h1 {
     top: 50%;
     right: -30%;
     transform: rotate(68deg);
+}
+
+@media screen and (max-width: 1400px) {
+    .grey-form{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1090px) {
+    .grey-form{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 940px) {
+    .grey-form{
+        width: 75%;
+    }
 }

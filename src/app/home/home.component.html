@@ -24,7 +24,6 @@
                 </div>
                 <div class="z-0 orange"></div>
                 <p class="title z-1">Accomplish the best quality</p>
-
             </div>
         </div>
     </div>
@@ -43,7 +42,6 @@
                         {{list.price}}
                     </h1>
                     <p class="mx-1 currency">{{list.currency}}</p>
-
                 </div>
                 <div class="ms-auto mx-2 d-flex">
                     @if(list.id !=2){
@@ -73,14 +71,33 @@
             <div class="col-xxl-6 col-9 item p-3 shadow-lg mx-3 z-2 align-items-center d-block">
                 <h2 class="mx-4 mt-4">Request Budget</h2>
                 <div class="mt-2 mb-4 d-flex">
-                    <input class="my-3 grey-form" type="text" placeholder="  Name" formControlName="name"
-                        aria-label="name">
-                    <input class="my-3 grey-form" type="number" placeholder="  Phone" formControlName="phone"
-                        aria-label="phone">
-                    <input class="my-3 grey-form" type="text" placeholder="  Email" formControlName="email"
-                        aria-label="email">
-                    <button class="my-3 home-button-sm d-block d-xxl-none" type="submit">↑</button>
-                    <button class="my-3 home-button d-none d-xxl-block" type="submit">Submit</button>
+                    <div class="d-block">
+                        <input class="my-3 grey-form" type="text" placeholder="  Name" formControlName="name"
+                            aria-label="name">
+                        @if(submitted && form.get('name')?.invalid) { <div class="text-danger"> Name is required. </div> }
+                    </div>
+                    <div class="d-block ms-auto">
+                        <input class="my-3 grey-form" type="number" placeholder="  Phone" formControlName="phone"
+                            aria-label="phone">
+                        @if(submitted && form.get('phone')?.invalid) {
+                        <div class="text-danger">
+                            @if(form.get('phone')?.errors?.['required']) { Phone is required. }
+                            @if(form.get('phone')?.errors?.['pattern']) { Invalid phone number format. }
+                        </div>
+                        }
+                    </div>
+                    <div class="d-block ms-auto">
+                        <input class="my-3 grey-form" type="text" placeholder="  Email" formControlName="email"
+                            aria-label="email">
+                        @if(submitted && form.get('email')?.invalid) {
+                        <div class="text-danger">
+                            @if(form.get('email')?.errors?.['required']) { Email is required. }
+                            @if(form.get('email')?.errors?.['email']) { Invalid email format. }
+                        </div>
+                        }
+                    </div>
+                    <button class="my-3 ms-auto home-button-sm d-block d-xxl-none" type="submit">↑</button>
+                    <button class="my-3 ms-auto home-button d-none d-xxl-block" type="submit">Submit</button>
                 </div>
             </div>
         </div>
