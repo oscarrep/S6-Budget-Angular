@@ -76,14 +76,14 @@ h1 {
     text-align: right;
 }
 
-.checkbox-circle,
-.checkbox-circle:checked {
+.checkbox-square,
+.checkbox-square:checked {
     margin-top: 2px;
     outline: 2px solid #4e1b39;
 }
 
-.checkbox-circle {
-    border-radius: 50%;
+.checkbox-square {
+    border-radius: 20%;
     width: 20px;
     height: 20px;
     appearance: none;
@@ -92,7 +92,7 @@ h1 {
     cursor: pointer;
 }
 
-.checkbox-circle:checked {
+.checkbox-square:checked {
     background-color: #AD5488;
     border: 3px solid white;
 }
