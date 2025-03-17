@@ -99,8 +99,8 @@ export class BudgetService {
 
   togglePanel(id: number) {
     if (this.pages() > 1 || this.languages() > 1){
-      for (let i = 0; i < this.pages(); i++) this.calculateWebTotal(false);
-      for (let i = 0; i < this.languages(); i++) this.calculateWebTotal(false);
+      for (let i = 1; i < this.pages(); i++) this.calculateWebTotal(false);
+      for (let i = 1; i < this.languages(); i++) this.calculateWebTotal(false);
     }
     this.pages.set(1);
     this.languages.set(1);
